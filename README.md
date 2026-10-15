@@ -11,7 +11,7 @@ FuseRT rewrites ONNX models with hand-written fusion passes, proves the outputs 
 
 ## What this project demonstrates
 
-| Skill | Evidence in this repo |
+| Technical Focus | Implementation Details |
 |---|---|
 | Graph compiler algorithms | Subgraph pattern matching with safety checks (single-consumer, axis and constant validation) and rewrites that insert fused nodes, in [`fusert/optimize.py`](fusert/optimize.py) |
 | Frontend operators | Rewrites to `LayerNormalization` (opset 17) and `Gelu` (opset 20), and a `MatMul` + `Add` + `Split` form for QKV |
@@ -82,6 +82,7 @@ python bench/bench_trt.py
 Raw output of every run is saved in [`results/logs/`](results/logs).
 
 **Environment:** WSL2 Ubuntu, Python 3.12, PyTorch 2.11 (export only), ONNX Runtime GPU, TensorRT 11.4.0.106, NVIDIA RTX 3060 Laptop GPU.
+
 
 ## Layout
 
