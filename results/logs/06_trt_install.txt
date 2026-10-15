@@ -1,0 +1,471 @@
+Using pip 26.2.1 from /home/sam02/projects/FuseRT/.venv/lib/python3.12/site-packages/pip (python 3.12)
+Collecting tensorrt
+  Downloading tensorrt-11.4.0.106.tar.gz (16 kB)
+  Installing build dependencies: started
+  Running command installing build dependencies for tensorrt
+  Using pip 26.2.1 from /home/sam02/projects/FuseRT/.venv/lib/python3.12/site-packages/pip (python 3.12)
+  Collecting setuptools>=61.0
+    Obtaining dependency information for setuptools>=61.0 from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Collecting wheel
+    Obtaining dependency information for wheel from https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl.metadata
+    Using cached wheel-0.48.0-py3-none-any.whl.metadata (2.3 kB)
+  Collecting packaging>=24.0 (from wheel)
+    Obtaining dependency information for packaging>=24.0 from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+    Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+  Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+  Using cached wheel-0.48.0-py3-none-any.whl (33 kB)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+  Installing collected packages: setuptools, packaging, wheel
+    Creating /tmp/pip-build-env-nzs64kms/overlay/bin
+    changing mode of /tmp/pip-build-env-nzs64kms/overlay/bin/wheel to 755
+
+  ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+  torch 2.11.0+cu128 requires setuptools<82, but you have setuptools 84.0.0 which is incompatible.
+  Successfully installed packaging-26.3 setuptools-84.0.0 wheel-0.48.0
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running egg_info
+  writing tensorrt.egg-info/PKG-INFO
+  writing dependency_links to tensorrt.egg-info/dependency_links.txt
+  writing requirements to tensorrt.egg-info/requires.txt
+  writing top-level names to tensorrt.egg-info/top_level.txt
+  reading manifest file 'tensorrt.egg-info/SOURCES.txt'
+  adding license file 'LICENSE.txt'
+  writing manifest file 'tensorrt.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running dist_info
+  creating /tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info
+  writing /tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/requires.txt
+  writing top-level names to /tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/SOURCES.txt'
+  adding license file 'LICENSE.txt'
+  writing manifest file '/tmp/pip-modern-metadata-w317ndbc/tensorrt.egg-info/SOURCES.txt'
+  creating '/tmp/pip-modern-metadata-w317ndbc/tensorrt-11.4.0.106.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tensorrt_cu13==11.4.0.106 (from tensorrt)
+  Downloading tensorrt_cu13-11.4.0.106.tar.gz (17 kB)
+  Installing build dependencies: started
+  Running command installing build dependencies for tensorrt_cu13
+  Using pip 26.2.1 from /home/sam02/projects/FuseRT/.venv/lib/python3.12/site-packages/pip (python 3.12)
+  Collecting setuptools>=61.0
+    Obtaining dependency information for setuptools>=61.0 from https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl.metadata
+    Using cached setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+  Collecting wheel
+    Obtaining dependency information for wheel from https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl.metadata
+    Using cached wheel-0.48.0-py3-none-any.whl.metadata (2.3 kB)
+  Collecting packaging>=24.0 (from wheel)
+    Obtaining dependency information for packaging>=24.0 from https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl.metadata
+    Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+  Using cached setuptools-84.0.0-py3-none-any.whl (818 kB)
+  Using cached wheel-0.48.0-py3-none-any.whl (33 kB)
+  Using cached packaging-26.3-py3-none-any.whl (129 kB)
+  Installing collected packages: setuptools, packaging, wheel
+    Creating /tmp/pip-build-env-mhk31ipf/overlay/bin
+    changing mode of /tmp/pip-build-env-mhk31ipf/overlay/bin/wheel to 755
+
+  ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+  torch 2.11.0+cu128 requires setuptools<82, but you have setuptools 84.0.0 which is incompatible.
+  Successfully installed packaging-26.3 setuptools-84.0.0 wheel-0.48.0
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running egg_info
+  writing tensorrt_cu13.egg-info/PKG-INFO
+  writing dependency_links to tensorrt_cu13.egg-info/dependency_links.txt
+  writing requirements to tensorrt_cu13.egg-info/requires.txt
+  writing top-level names to tensorrt_cu13.egg-info/top_level.txt
+  reading manifest file 'tensorrt_cu13.egg-info/SOURCES.txt'
+  adding license file 'LICENSE.txt'
+  writing manifest file 'tensorrt_cu13.egg-info/SOURCES.txt'
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running dist_info
+  creating /tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info
+  writing /tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/requires.txt
+  writing top-level names to /tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/SOURCES.txt'
+  adding license file 'LICENSE.txt'
+  writing manifest file '/tmp/pip-modern-metadata-t884wet3/tensorrt_cu13.egg-info/SOURCES.txt'
+  creating '/tmp/pip-modern-metadata-t884wet3/tensorrt_cu13-11.4.0.106.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tensorrt_cu13_libs==11.4.0.106 (from tensorrt_cu13==11.4.0.106->tensorrt)
+  Downloading tensorrt_cu13_libs-11.4.0.106.tar.gz (15 kB)
+  Installing build dependencies: started
+  Running command installing build dependencies for tensorrt_cu13_libs
+  Using pip 26.2.1 from /home/sam02/projects/FuseRT/.venv/lib/python3.12/site-packages/pip (python 3.12)
+  Collecting wheel-stub
+    Obtaining dependency information for wheel-stub from https://files.pythonhosted.org/packages/06/bc/a04db4c1ca8991c38d9cc4004adaa38309d5e236568c77965a0ea61601a0/wheel_stub-0.5.0-py3-none-any.whl.metadata
+    Using cached wheel_stub-0.5.0-py3-none-any.whl.metadata (2.9 kB)
+  Using cached wheel_stub-0.5.0-py3-none-any.whl (108 kB)
+  Installing collected packages: wheel-stub
+  Successfully installed wheel-stub-0.5.0
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Running command Getting requirements to build wheel
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  INFO:wheel-stub:Testing wheel tensorrt_cu13_libs-11.4.0.106-py3-none-manylinux_2_28_x86_64.whl against tag py3-none-manylinux_2_28_x86_64
+  INFO:wheel-stub:Downloading wheel tensorrt_cu13_libs-11.4.0.106-py3-none-manylinux_2_28_x86_64.whl
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting tensorrt_cu13_bindings==11.4.0.106 (from tensorrt_cu13==11.4.0.106->tensorrt)
+  Obtaining dependency information for tensorrt_cu13_bindings==11.4.0.106 from https://files.pythonhosted.org/packages/60/b6/f1a28d45bc43d98954381a14417b4254f8c96fbd7813427776feb8b20f21/tensorrt_cu13_bindings-11.4.0.106-cp312-none-manylinux_2_28_x86_64.whl.metadata
+  Downloading tensorrt_cu13_bindings-11.4.0.106-cp312-none-manylinux_2_28_x86_64.whl.metadata (686 bytes)
+Downloading tensorrt_cu13_bindings-11.4.0.106-cp312-none-manylinux_2_28_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 2.3 MB/s  0:00:00
+Building wheels for collected packages: tensorrt, tensorrt_cu13, tensorrt_cu13_libs
+  Building wheel for tensorrt (pyproject.toml): started
+  Running command Building wheel for tensorrt (pyproject.toml)
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /tmp/pip-build-env-nzs64kms/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running bdist_wheel
+  running build
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_egg_info
+  running egg_info
+  writing tensorrt.egg-info/PKG-INFO
+  writing dependency_links to tensorrt.egg-info/dependency_links.txt
+  writing requirements to tensorrt.egg-info/requires.txt
+  writing top-level names to tensorrt.egg-info/top_level.txt
+  reading manifest file 'tensorrt.egg-info/SOURCES.txt'
+  adding license file 'LICENSE.txt'
+  writing manifest file 'tensorrt.egg-info/SOURCES.txt'
+  Copying tensorrt.egg-info to build/bdist.linux-x86_64/wheel/./tensorrt-11.4.0.106-py3.12.egg-info
+  running install_scripts
+  creating build/bdist.linux-x86_64/wheel/tensorrt-11.4.0.106.dist-info/WHEEL
+  creating '/tmp/pip-ephem-wheel-cache-5vh3ufpp/wheels/b7/0c/95/40e93b80f3d456ace0ec24a29e62353bd70f0b582a3779eee3/tmpgu9rru87/.tmp-mywbbjc1/tensorrt-11.4.0.106-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding 'tensorrt-11.4.0.106.dist-info/licenses/LICENSE.txt'
+  adding 'tensorrt-11.4.0.106.dist-info/METADATA'
+  adding 'tensorrt-11.4.0.106.dist-info/WHEEL'
+  adding 'tensorrt-11.4.0.106.dist-info/top_level.txt'
+  adding 'tensorrt-11.4.0.106.dist-info/zip-safe'
+  adding 'tensorrt-11.4.0.106.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for tensorrt (pyproject.toml): finished with status 'done'
+  Created wheel for tensorrt: filename=tensorrt-11.4.0.106-py3-none-any.whl size=16566 sha256=82972eb0a8a4b8bf932c3ccee46e72b9536bcac2b2b92d0795b0bec814f2a3d5
+  Stored in directory: /tmp/pip-ephem-wheel-cache-5vh3ufpp/wheels/b7/0c/95/40e93b80f3d456ace0ec24a29e62353bd70f0b582a3779eee3
+  Building wheel for tensorrt_cu13 (pyproject.toml): started
+  Running command Building wheel for tensorrt_cu13 (pyproject.toml)
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /tmp/pip-build-env-mhk31ipf/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: Other/Proprietary License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+  running bdist_wheel
+  running build
+  running build_py
+  creating build/lib/tensorrt
+  copying tensorrt/__init__.py -> build/lib/tensorrt
+  creating build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_export.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_top_level.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_autotune.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_utils.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/__init__.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_lib.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_validate.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_plugin_class.py -> build/lib/tensorrt/plugin
+  copying tensorrt/plugin/_tensor.py -> build/lib/tensorrt/plugin
+  running egg_info
+  writing tensorrt_cu13.egg-info/PKG-INFO
+  writing dependency_links to tensorrt_cu13.egg-info/dependency_links.txt
+  writing requirements to tensorrt_cu13.egg-info/requires.txt
+  writing top-level names to tensorrt_cu13.egg-info/top_level.txt
+  reading manifest file 'tensorrt_cu13.egg-info/SOURCES.txt'
+  adding license file 'LICENSE.txt'
+  writing manifest file 'tensorrt_cu13.egg-info/SOURCES.txt'
+  installing to build/bdist.linux-x86_64/wheel
+  running install
+  running install_lib
+  creating build/bdist.linux-x86_64/wheel
+  creating build/bdist.linux-x86_64/wheel/tensorrt
+  copying build/lib/tensorrt/__init__.py -> build/bdist.linux-x86_64/wheel/./tensorrt
+  creating build/bdist.linux-x86_64/wheel/tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_export.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_top_level.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_autotune.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_utils.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/__init__.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_lib.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_validate.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_plugin_class.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  copying build/lib/tensorrt/plugin/_tensor.py -> build/bdist.linux-x86_64/wheel/./tensorrt/plugin
+  running install_egg_info
+  Copying tensorrt_cu13.egg-info to build/bdist.linux-x86_64/wheel/./tensorrt_cu13-11.4.0.106-py3.12.egg-info
+  running install_scripts
+  creating build/bdist.linux-x86_64/wheel/tensorrt_cu13-11.4.0.106.dist-info/WHEEL
+  creating '/tmp/pip-ephem-wheel-cache-5vh3ufpp/wheels/64/4b/21/c4fd35dde1275834688923973549acad2919c2f15384b1e04b/tmpjtron551/.tmp-bwvyipcd/tensorrt_cu13-11.4.0.106-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+  adding 'tensorrt/__init__.py'
+  adding 'tensorrt/plugin/__init__.py'
+  adding 'tensorrt/plugin/_autotune.py'
+  adding 'tensorrt/plugin/_export.py'
+  adding 'tensorrt/plugin/_lib.py'
+  adding 'tensorrt/plugin/_plugin_class.py'
+  adding 'tensorrt/plugin/_tensor.py'
+  adding 'tensorrt/plugin/_top_level.py'
+  adding 'tensorrt/plugin/_utils.py'
+  adding 'tensorrt/plugin/_validate.py'
+  adding 'tensorrt_cu13-11.4.0.106.dist-info/licenses/LICENSE.txt'
+  adding 'tensorrt_cu13-11.4.0.106.dist-info/METADATA'
+  adding 'tensorrt_cu13-11.4.0.106.dist-info/WHEEL'
+  adding 'tensorrt_cu13-11.4.0.106.dist-info/top_level.txt'
+  adding 'tensorrt_cu13-11.4.0.106.dist-info/zip-safe'
+  adding 'tensorrt_cu13-11.4.0.106.dist-info/RECORD'
+  removing build/bdist.linux-x86_64/wheel
+  Building wheel for tensorrt_cu13 (pyproject.toml): finished with status 'done'
+  Created wheel for tensorrt_cu13: filename=tensorrt_cu13-11.4.0.106-py3-none-any.whl size=23075 sha256=eb101d7c190a8715de5d8f247f600ed9bd600226fe51a056acf99925050970a9
+  Stored in directory: /tmp/pip-ephem-wheel-cache-5vh3ufpp/wheels/64/4b/21/c4fd35dde1275834688923973549acad2919c2f15384b1e04b
+  Building wheel for tensorrt_cu13_libs (pyproject.toml): started
+  Running command Building wheel for tensorrt_cu13_libs (pyproject.toml)
+  Building wheel for tensorrt_cu13_libs (pyproject.toml): finished with status 'done'
+  Created wheel for tensorrt_cu13_libs: filename=tensorrt_cu13_libs-11.4.0.106-py3-none-manylinux_2_28_x86_64.whl size=3813961779 sha256=c538a1d6203e2f5de0604ddadcf4e1df4099c645e0b58201754fb281f5d562de
+  Stored in directory: /tmp/pip-ephem-wheel-cache-5vh3ufpp/wheels/60/f4/4f/472111a415208301ce832dd168b9a6f963be7a6181379877fd
+Successfully built tensorrt tensorrt_cu13 tensorrt_cu13_libs
+Installing collected packages: tensorrt_cu13_libs, tensorrt_cu13_bindings, tensorrt_cu13, tensorrt
+
+Successfully installed tensorrt-11.4.0.106 tensorrt_cu13-11.4.0.106 tensorrt_cu13_bindings-11.4.0.106 tensorrt_cu13_libs-11.4.0.106
