@@ -1,0 +1,23 @@
+=== FIRST GELU (around the first Erf) ===
+Erf input comes from:
+    Div <- ['tensor', 'const=1.4142135381698608']
+       Add <- ['const[3072]', 'tensor']
+Erf output goes to:
+    Add <- ['tensor', 'const=1.0']
+       Mul <- ['tensor', 'tensor']
+          Mul <- ['tensor', 'const=0.5']
+
+=== FIRST QKV (tensor read by 3 MatMuls) ===
+tensor from LayerNormalization feeds 3 MatMuls
+  MatMul <- ['tensor', 'const[768, 768]']
+      Add <- ['const[768]', 'tensor']
+         Reshape <- ['tensor', 'tensor']
+            Transpose <- ['tensor']
+  MatMul <- ['tensor', 'const[768, 768]']
+      Add <- ['const[768]', 'tensor']
+         Reshape <- ['tensor', 'tensor']
+            Transpose <- ['tensor']
+  MatMul <- ['tensor', 'const[768, 768]']
+      Add <- ['const[768]', 'tensor']
+         Reshape <- ['tensor', 'tensor']
+            Transpose <- ['tensor']
