@@ -1,4 +1,6 @@
 import sys
+import collections
+import numpy as np
 import onnx
 import onnx_graphsurgeon as gs
 
@@ -8,12 +10,80 @@ def load(path):
 
 
 def save(graph, path):
-    onnx.save(gs.export_onnx(graph), path)
+    model = gs.export_onnx(graph)
+    # LayerNormalization only exists from opset 17 onward
+    if any(n.op_type == "LayerNormalization" for n in model.graph.node):
+        for imp in model.opset_import:
+            if imp.domain in ("", "ai.onnx") and imp.version < 17:
+                imp.version = 17
+    onnx.save(model, path)
     onnx.checker.check_model(path)
 
 
+# ---------- helpers ----------
+def _prod(t, op):
+    """Node that produces tensor t, if it has the given op type."""
+    if len(t.inputs) == 1 and t.inputs[0].op == op:
+        return t.inputs[0]
+    return None
+
+
+def _only_consumer(t, op):
+    return len(t.outputs) == 1 and t.outputs[0].op == op
+
+
+def _scalar(t):
+    if not isinstance(t, gs.Constant):
+        return None
+    v = np.asarray(t.values)
+    return float(v.reshape(-1)[0]) if v.size == 1 else None
+
+
+def _last_axis(node):
+    axes = node.attrs.get("axes")
+    return axes is not None and list(axes) == [-1]
+
+
+def _constant_node_value(node):
+    """Read the value stored inside an ONNX Constant node."""
+    a = node.attrs
+    if "value" in a:
+        v = a["value"]
+        return np.asarray(v.values if isinstance(v, gs.Constant) else v)
+    if "value_float" in a:
+        return np.array(a["value_float"], dtype=np.float32)
+    if "value_int" in a:
+        return np.array(a["value_int"], dtype=np.int64)
+    if "value_floats" in a:
+        return np.array(a["value_floats"], dtype=np.float32)
+    if "value_ints" in a:
+        return np.array(a["value_ints"], dtype=np.int64)
+    return None
+
+
+# ---------- passes ----------
+def inline_constants(graph):
+    """Turn Constant nodes into plain constant tensors (weights)."""
+    for node in list(graph.nodes):
+        if node.op != "Constant":
+            continue
+        out = node.outputs[0]
+        if out in graph.outputs:
+            continue
+        val = _constant_node_value(node)
+        if val is None:
+            continue
+        const = gs.Constant(name=out.name, values=val)
+        for consumer in list(out.outputs):
+            for i, t in enumerate(consumer.inputs):
+                if t is out:
+                    consumer.inputs[i] = const
+        node.outputs.clear()
+    graph.cleanup()
+
+
 def remove_identity(graph):
-    """Delete Identity nodes by connecting their input straight to their consumers."""
+    """Delete Identity nodes by connecting their input to their consumers."""
     for node in list(graph.nodes):
         if node.op != "Identity":
             continue
@@ -25,6 +95,102 @@ def remove_identity(graph):
                 if t is out:
                     consumer.inputs[i] = inp
         node.outputs.clear()
+    graph.cleanup()
+
+
+def _match_layernorm(sqrt):
+    """
+    Pattern: ReduceMean -> Sub -> Pow(2) -> ReduceMean -> Add(eps) -> Sqrt
+             -> Div -> Mul(gamma) -> Add(beta)
+    Returns (match_dict, None) or (None, reason_it_failed).
+    """
+    add_eps = _prod(sqrt.inputs[0], "Add")
+    if add_eps is None:
+        return None, "no Add before Sqrt"
+    eps, var_t = None, None
+    for t in add_eps.inputs:
+        s = _scalar(t)
+        if s is not None:
+            eps = s
+        else:
+            var_t = t
+    if eps is None or var_t is None:
+        return None, "no scalar epsilon"
+
+    mean2 = _prod(var_t, "ReduceMean")
+    if mean2 is None:
+        return None, "no ReduceMean for variance"
+    if not _last_axis(mean2):
+        return None, "variance axis is not last"
+    pow_ = _prod(mean2.inputs[0], "Pow")
+    if pow_ is None:
+        return None, "no Pow"
+    if _scalar(pow_.inputs[1]) != 2.0:
+        return None, "Pow exponent is not 2"
+    sub = _prod(pow_.inputs[0], "Sub")
+    if sub is None:
+        return None, "no Sub"
+    x = sub.inputs[0]
+    mean1 = _prod(sub.inputs[1], "ReduceMean")
+    if mean1 is None or mean1.inputs[0] is not x:
+        return None, "mean branch does not match"
+    if not _last_axis(mean1):
+        return None, "mean axis is not last"
+
+    if not _only_consumer(sqrt.outputs[0], "Div"):
+        return None, "Sqrt is not followed by Div"
+    div = sqrt.outputs[0].outputs[0]
+    if div.inputs[0] is not sub.outputs[0] or div.inputs[1] is not sqrt.outputs[0]:
+        return None, "Div inputs do not match"
+    if not _only_consumer(div.outputs[0], "Mul"):
+        return None, "Div is not followed by Mul"
+    mul = div.outputs[0].outputs[0]
+    gamma = next((t for t in mul.inputs if t is not div.outputs[0]), None)
+    if not isinstance(gamma, gs.Constant):
+        return None, "gamma is not a constant"
+    if not _only_consumer(mul.outputs[0], "Add"):
+        return None, "Mul is not followed by Add"
+    add_b = mul.outputs[0].outputs[0]
+    beta = next((t for t in add_b.inputs if t is not mul.outputs[0]), None)
+    if not isinstance(beta, gs.Constant):
+        return None, "beta is not a constant"
+
+    inner = [mean1.outputs[0], mean2.outputs[0], pow_.outputs[0], add_eps.outputs[0]]
+    if any(len(t.outputs) != 1 for t in inner):
+        return None, "an in-between result is used elsewhere"
+    if len(sub.outputs[0].outputs) != 2:
+        return None, "Sub result is used elsewhere"
+
+    return dict(x=x, gamma=gamma, beta=beta, eps=eps, tail=add_b), None
+
+
+def fuse_layernorm(graph):
+    """Replace each matched 9-node LayerNorm group with one LayerNormalization."""
+    fused = 0
+    skipped = collections.Counter()
+    for sqrt in [n for n in graph.nodes if n.op == "Sqrt"]:
+        m, reason = _match_layernorm(sqrt)
+        if m is None:
+            skipped[reason] += 1
+            continue
+        out = m["tail"].outputs[0]
+        m["tail"].outputs.clear()
+        graph.nodes.append(
+            gs.Node(
+                op="LayerNormalization",
+                name=f"fused_layernorm_{fused}",
+                inputs=[m["x"], m["gamma"], m["beta"]],
+                outputs=[out],
+                attrs={"axis": -1, "epsilon": m["eps"]},
+            )
+        )
+        fused += 1
+    if fused:
+        graph.opset = max(graph.opset, 17)  # LayerNormalization needs opset 17
+    graph.cleanup()
+    print(f"  fused {fused} LayerNorm groups")
+    for reason, n in skipped.items():
+        print(f"  skipped {n}: {reason}")
 
 
 def dead_code_elimination(graph):
@@ -33,7 +199,7 @@ def dead_code_elimination(graph):
     graph.toposort()
 
 
-PASSES = [remove_identity, dead_code_elimination]
+PASSES = [inline_constants, remove_identity, fuse_layernorm, dead_code_elimination]
 
 
 def optimize(graph):

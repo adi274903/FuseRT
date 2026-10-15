@@ -1,4 +1,7 @@
 start: 1231 nodes
-remove_identity             1231 -> 1231
-dead_code_elimination       1231 -> 1231
+inline_constants            1231 -> 883
+remove_identity             883 -> 883
+  fused 25 LayerNorm groups
+fuse_layernorm              883 -> 683
+dead_code_elimination       683 -> 683
 saved models/bert_opt.onnx

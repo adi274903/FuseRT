@@ -1,24 +1,20 @@
-total nodes: 1231
-weights (initializers): 199
+total nodes: 683
+weights (initializers): 497
 inputs: ['input_ids', 'attention_mask']
 outputs: ['last_hidden_state', 'pooler_output']
 
-Constant                    348
-Add                         173
+Add                         123
 Unsqueeze                   112
 MatMul                      96
-Mul                         65
 Reshape                     53
 Concat                      52
-ReduceMean                  50
 Transpose                   48
-Div                         37
+Mul                         40
 Gather                      34
 Shape                       33
-Sub                         25
-Pow                         25
-Sqrt                        25
+LayerNormalization          25
 Softmax                     12
+Div                         12
 Erf                         12
 Cast                        6
 ConstantOfShape             4
