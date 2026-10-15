@@ -11,6 +11,7 @@ FuseRT rewrites ONNX models with hand-written fusion passes, proves the outputs 
 
 ## What this project demonstrates
 |---|---|
+
 | Graph compiler algorithms | Subgraph pattern matching with safety checks (single-consumer, axis and constant validation) and rewrites that insert fused nodes, in [`fusert/optimize.py`](fusert/optimize.py) |
 | Frontend operators | Rewrites to `LayerNormalization` (opset 17) and `Gelu` (opset 20), and a `MatMul` + `Add` + `Split` form for QKV |
 | Performance analysis methodology | Warmup, GPU synchronization, p50/p95/p99, throughput, and a control run with ORT's optimizer on and off to separate what the passes add ([`bench/`](bench)) |
