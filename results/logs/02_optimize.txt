@@ -1,0 +1,4 @@
+start: 1231 nodes
+remove_identity             1231 -> 1231
+dead_code_elimination       1231 -> 1231
+saved models/bert_opt.onnx
