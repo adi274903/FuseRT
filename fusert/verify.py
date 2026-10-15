@@ -20,7 +20,11 @@ def make_inputs(batch, seq, padded, seed=0):
 
 
 def run(path, feeds):
-    sess = ort.InferenceSession(path, providers=["CPUExecutionProvider"])
+    so = ort.SessionOptions()
+    so.graph_optimization_level = ort.GraphOptimizationLevel.ORT_DISABLE_ALL
+    sess = ort.InferenceSession(
+        path, sess_options=so, providers=["CPUExecutionProvider"]
+    )
     return sess.run(None, feeds)
 
 
