@@ -3,15 +3,13 @@
 **A graph compiler for deep learning inference, validated against TensorRT.**
 FuseRT rewrites ONNX models with hand-written fusion passes, proves the outputs still match, and benchmarks the result against ONNX Runtime and TensorRT 11 on an RTX 3060.
 
-**Headline results (BERT-base, FP32, RTX 3060 Laptop GPU)**
+**Results (BERT-base, FP32, RTX 3060 Laptop GPU)**
 
 - **1231 to 599 graph nodes** from four passes: constant inlining, LayerNorm fusion, GELU fusion and QKV merging. Outputs match the original within 2.2e-5.
 - **2.1x lower latency at batch 1** (15.68 to 7.39 ms) on ONNX Runtime CUDA with its optimizer off, and still **1.17x faster on top of ORT's own default optimizer**.
 - **TensorRT 11.4 comparison:** engines built from the original and the rewritten graph both come out at 197 layers with matching layer types, so the passes reproduce fusions TensorRT already makes. TensorRT is **1.9x faster than ONNX Runtime at batch 1**.
 
 ## What this project demonstrates
-
-| Skill | Evidence in this repo |
 |---|---|
 | Graph compiler algorithms | Subgraph pattern matching with safety checks (single-consumer, axis and constant validation) and rewrites that insert fused nodes, in [`fusert/optimize.py`](fusert/optimize.py) |
 | Frontend operators | Rewrites to `LayerNormalization` (opset 17) and `Gelu` (opset 20), and a `MatMul` + `Add` + `Split` form for QKV |
@@ -22,7 +20,6 @@ FuseRT rewrites ONNX models with hand-written fusion passes, proves the outputs 
 | Python | End-to-end implementation |
 
 ## How it works
-
 FuseRT loads an ONNX graph, runs a list of passes, and saves a smaller graph. Each pass finds a pattern, checks that it is safe to rewrite, and replaces it with one node. Every skipped match is logged with its reason.
 
 | Pass | Pattern found | Rewritten to | Nodes removed (BERT-base) |
