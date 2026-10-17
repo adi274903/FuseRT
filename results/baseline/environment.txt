@@ -1,0 +1,13 @@
+Python 3.12.3
+numpy==2.5.4
+onnx==1.23.2
+onnx_graphsurgeon==0.6.1
+onnxruntime-gpu==1.31.0
+tensorrt==11.4.0.106
+tensorrt_cu13==11.4.0.106
+tensorrt_cu13_bindings==11.4.0.106
+tensorrt_cu13_libs==11.4.0.106
+torch==2.11.0+cu128
+transformers==5.19.0
+name, driver_version, memory.total [MiB]
+NVIDIA GeForce RTX 3060 Laptop GPU, 610.88, 6144 MiB
