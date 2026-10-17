@@ -1,0 +1,6 @@
+LayerNormalization nodes: 25
+residual + LayerNorm matches: 24
+skipped 1: input shapes differ (broadcast?): ['unk__7', 'unk__8', 768] vs ['unk__1', 'unk__2', 768]
+example 0: shape=['unk__9', 'unk__10', 768] hidden=768 eps=9.999999960041972e-13
+example 1: shape=['unk__9', 'unk__10', 768] hidden=768 eps=9.999999960041972e-13
+example 2: shape=['unk__9', 'unk__10', 768] hidden=768 eps=9.999999960041972e-13
