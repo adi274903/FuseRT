@@ -1,0 +1,27 @@
+layer type                        original  optimized
+kgen                                    75         75
+gemm                                    73         73
+cast                                    24         24
+reshape                                 24         24
+shape_call                               1          1
+
+total layers: 197 197
+identical layer names: False
+only in original (first 8):
+   /model/encoder/layer.0/attention/self/value/MatMul+/model/encoder/layer.0/attention/self/key/MatMul+/model/enc
+   /model/encoder/layer.1/attention/self/value/MatMul+/model/encoder/layer.1/attention/self/key/MatMul+/model/enc
+   /model/encoder/layer.10/attention/self/value/MatMul+/model/encoder/layer.10/attention/self/key/MatMul+/model/e
+   /model/encoder/layer.11/attention/self/value/MatMul+/model/encoder/layer.11/attention/self/key/MatMul+/model/e
+   /model/encoder/layer.2/attention/self/value/MatMul+/model/encoder/layer.2/attention/self/key/MatMul+/model/enc
+   /model/encoder/layer.3/attention/self/value/MatMul+/model/encoder/layer.3/attention/self/key/MatMul+/model/enc
+   /model/encoder/layer.4/attention/self/value/MatMul+/model/encoder/layer.4/attention/self/key/MatMul+/model/enc
+   /model/encoder/layer.5/attention/self/value/MatMul+/model/encoder/layer.5/attention/self/key/MatMul+/model/enc
+only in optimized (first 8):
+   __mye105871_myl0_180
+   __mye105906_myl0_182
+   __mye105925_myl0_164
+   __mye105944_myl0_166
+   __mye105963_myl0_148
+   __mye105982_myl0_150
+   __mye106001_myl0_132
+   __mye106020_myl0_134

@@ -1,0 +1,8 @@
+TensorRT 11.4.0.106   seq=128   FP32   times in ms
+engine     batch      p50      p95      p99  samples/s
+original       1     3.83     4.01     4.26      261.2
+original       8    19.98    20.29    20.44      400.5
+original      32    78.17    82.84    85.34      409.4
+optimized      1     3.93     4.74     5.21      254.4
+optimized      8    20.33    22.45    23.67      393.5
+optimized     32    77.96    81.62    86.76      410.5
