@@ -65,6 +65,41 @@ All numbers: RTX 3060 Laptop GPU (6 GB), FP32, sequence length 128, p50 latency 
 
 [`fusert/verify.py`](fusert/verify.py) runs the original and optimized models with ONNX Runtime's graph optimizer disabled, so both graphs run as written. Four configurations: batch 1 to 8, sequence length 64 to 256, one with padded attention masks. Maximum absolute error is 2.19e-05 against a tolerance of 1e-4.
 
+## FuseRT 2.0: residual + LayerNorm fusion
+
+FuseRT 2.0 adds a custom fused operation on top of the v1.0 graph passes: `FusedResidualLayerNorm`, which computes `LayerNorm(hidden_state + residual) * gamma + beta` in one step, without writing the intermediate sum to memory.
+
+**Frozen baseline.** The v1.0 results (node counts, correctness, TensorRT layer reports, ONNX Runtime and TensorRT latencies, software versions) are saved in [`results/baseline/`](results/baseline) and tagged `v1.0-baseline`. FuseRT 2.0 results are compared against these numbers. Summary: [`results/baseline/baseline.md`](results/baseline/baseline.md).
+
+**Residual + LayerNorm matcher.** [`fusert/fuse_residual_layernorm.py`](fusert/fuse_residual_layernorm.py) finds every `Add` that feeds a `LayerNormalization` and reports whether the pair can be fused. A site is fusable when both `Add` inputs are float32 tensors of provably equal shape (dynamic dimensions are compared by name), the `Add` has no constant input, the sum has no other consumer, and gamma and beta are constants. Every skipped site is reported with its reason.
+
+On BERT-base:
+
+| | count |
+|---|---|
+| LayerNormalization nodes | 25 |
+| fusable residual + LayerNorm sites | 24 (12 layers x 2) |
+| skipped | 1 (embedding LayerNorm: the added position embeddings have a different shape, so it is a broadcast add) |
+
+Unit tests build small graphs by hand to cover a real residual add, a bias add, a broadcast add, and a sum used by more than the LayerNorm ([`tests/test_residual_ln_matcher.py`](tests/test_residual_ln_matcher.py)).
+
+**Plugin interface.** [`docs/plugin_interface.md`](docs/plugin_interface.md) specifies the TensorRT plugin: `IPluginV3`, name `FusedResidualLayerNorm`, namespace `fusert`.
+
+| | |
+|---|---|
+| Inputs | hidden_state `[batch, seq, H]`, residual `[batch, seq, H]`, gamma `[H]`, beta `[H]` |
+| Output | normalized `[batch, seq, H]` |
+| Attributes | `epsilon` (float32), `hidden_size` (int32) |
+| Data types | FP32 first, FP16 later; one type across all tensors |
+| Serialized fields | `epsilon`, `hidden_size` |
+| Fallback | the standard-operations model (`bert_opt.onnx`) is used whenever the plugin library is missing or rejects the node |
+
+[`plugins/fused_residual_layernorm.h`](plugins/fused_residual_layernorm.h) declares the CUDA kernel launch function that the plugin calls.
+
+**Reference implementation.** [`fusert/reference_residual_ln.py`](fusert/reference_residual_ln.py) computes residual + LayerNorm in float64 and serves as the correctness reference for the kernel. [`tests/test_reference_residual_ln.py`](tests/test_reference_residual_ln.py) checks it against ONNX Runtime's own `LayerNormalization` on three shapes (max error under 1e-5).
+
+Test suite: 7 tests (`python -m pytest tests -q`).
+
 ## Reproduce
 
 ```
@@ -77,18 +112,23 @@ python bench/build_trt.py models/bert_opt.onnx models/bert_opt_fp32.plan results
 python bench/compare_layers.py results/trt_original_layers.json results/trt_optimized_layers.json
 python bench/bench_ort.py
 python bench/bench_trt.py
+python -m fusert.fuse_residual_layernorm models/bert_opt.onnx
+python -m pytest tests -q
 ```
 
 Raw output of every run is saved in [`results/logs/`](results/logs).
 
 **Environment:** WSL2 Ubuntu, Python 3.12, PyTorch 2.11 (export only), ONNX Runtime GPU, TensorRT 11.4.0.106, NVIDIA RTX 3060 Laptop GPU.
 
-
 ## Layout
 
 ```
-fusert/    optimize.py (passes), verify.py, stats.py, inspect_graph.py
+fusert/    optimize.py (passes), verify.py, stats.py, inspect_graph.py,
+           fuse_residual_layernorm.py, reference_residual_ln.py
 models/    export_bert.py
 bench/     build_trt.py, compare_layers.py, bench_ort.py, bench_trt.py
-results/   logs and TensorRT layer dumps
+plugins/   fused_residual_layernorm.h
+docs/      plugin_interface.md
+tests/     residual + LayerNorm matcher and reference tests
+results/   logs, baseline/ (frozen v1.0 results), TensorRT layer dumps
 ```
