@@ -1,0 +1,41 @@
+profile: results/profile_original_b1.json   batch=1   seq=128
+all layers: 6.901 ms   kgen layers: 75 = 1.589 ms (23.0% of all)
+
+category                     count       ms  % of all  % of kgen
+layernorm (+residual add)       38    0.545      7.9%      34.3%
+other                           13    0.492      7.1%      31.0%
+softmax                         12    0.417      6.0%      26.3%
+gelu                            12    0.134      1.9%       8.5%
+
+Upper bound: if all layernorm(+residual) layers took 0 ms, total time would fall by 7.9%.
+A fused kernel will not reach zero, so the real gain is smaller than this.
+
+fields available for a kgen layer in the layer file: ['Constants', 'Inputs', 'LayerType', 'Metadata', 'Name', 'Outputs', 'StreamId', 'TacticName']
+
+first 14 kgen layers in execution order:
+   0.0551 ms  layernorm (+residual add)  __myl_CastGathGathCastReplGathGathReshReshAddReshAddReshMean
+   0.0337 ms  layernorm (+residual add)  __myl_AddSqrtDivMulMulAddReshTran_myl0_2
+   0.0393 ms  softmax                    __myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCast
+   0.0402 ms  other                      __myl_Tran_myl0_11
+   0.0102 ms  layernorm (+residual add)  __myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_13
+   0.0119 ms  gelu                       __myl_DivErfAddMulMul_myl0_15
+   0.0081 ms  layernorm (+residual add)  __myl_AddMeanSubMulMean_myl0_17
+   0.0215 ms  layernorm (+residual add)  __myl_AddSqrtDivMulMulAddReshTran_myl0_18
+   0.0399 ms  softmax                    __myl_MulAddMaxrSubExpSumDivMul_myl0_25
+   0.0373 ms  other                      __myl_Tran_myl0_27
+   0.0117 ms  layernorm (+residual add)  __myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_29
+   0.0123 ms  gelu                       __myl_DivErfAddMulMul_myl0_31
+   0.0103 ms  layernorm (+residual add)  __myl_AddMeanSubMulMean_myl0_33
+   0.0226 ms  layernorm (+residual add)  __myl_AddSqrtDivMulMulAddReshTran_myl0_34
+
+unclassified kgen layers: 13, first 8:
+   0.0402 ms  __myl_Tran_myl0_11  |   __myl_Tran_myl0_11 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Laye
+   0.0373 ms  __myl_Tran_myl0_27  |   __myl_Tran_myl0_27 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Laye
+   0.0409 ms  __myl_Tran_myl0_43  |   __myl_Tran_myl0_43 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Laye
+   0.0391 ms  __myl_Tran_myl0_59  |   __myl_Tran_myl0_59 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Laye
+   0.0418 ms  __myl_Tran_myl0_75  |   __myl_Tran_myl0_75 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Laye
+   0.0434 ms  __myl_Tran_myl0_91  |   __myl_Tran_myl0_91 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Laye
+   0.0431 ms  __myl_Tran_myl0_107  |   __myl_Tran_myl0_107 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Lay
+   0.0318 ms  __myl_Tran_myl0_123  |   __myl_Tran_myl0_123 kgen [] __myl_Tran_0x29a46e689fc604a15d90e31e8353cb4c_vec 0 [ONNX Lay
+
+saved results/kgen_breakdown_b1.json

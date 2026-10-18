@@ -1,0 +1,399 @@
+{
+ "by_category": {
+  "layernorm (+residual add)": {
+   "count": 38,
+   "ms": 0.5451984045049176
+  },
+  "softmax": {
+   "count": 12,
+   "ms": 0.4170918412227183
+  },
+  "other": {
+   "count": 13,
+   "ms": 0.4923340807994827
+  },
+  "gelu": {
+   "count": 12,
+   "ms": 0.13429088155739008
+  }
+ },
+ "kgen_total_ms": 1.5889152080845088,
+ "all_ms": 6.900744967064821,
+ "rows": [
+  {
+   "name": "__myl_CastGathGathCastReplGathGathReshReshAddReshAddReshMeanSubMulMean_myl0_1",
+   "ms": 0.05512383998371661,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_2",
+   "ms": 0.03367488018237055,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_myl0_9",
+   "ms": 0.039346880037337544,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_11",
+   "ms": 0.04017568008508533,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_13",
+   "ms": 0.010187840140424669,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_15",
+   "ms": 0.011905280044302344,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_17",
+   "ms": 0.00813088015653193,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_18",
+   "ms": 0.02148128016386181,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_25",
+   "ms": 0.039881600118242204,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_27",
+   "ms": 0.0372630400210619,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_29",
+   "ms": 0.011714880117215215,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_31",
+   "ms": 0.012347200056537985,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_33",
+   "ms": 0.010310080153867602,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_34",
+   "ms": 0.02264384016394615,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_41",
+   "ms": 0.038812480117194355,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_43",
+   "ms": 0.04085023988503963,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_45",
+   "ms": 0.00971104007679969,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_47",
+   "ms": 0.010188800180330873,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_49",
+   "ms": 0.00793984015006572,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_50",
+   "ms": 0.017041280046105386,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_57",
+   "ms": 0.034571520374156534,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_59",
+   "ms": 0.039116160022094844,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_61",
+   "ms": 0.013013760149478913,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_63",
+   "ms": 0.010598720088601112,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_65",
+   "ms": 0.012901120162568986,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_66",
+   "ms": 0.02301952013745904,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_73",
+   "ms": 0.03363711998797953,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_75",
+   "ms": 0.04181216032244265,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_77",
+   "ms": 0.011334720151498914,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_79",
+   "ms": 0.010846720170229673,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_81",
+   "ms": 0.011151360087096692,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_82",
+   "ms": 0.019049280104227365,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_89",
+   "ms": 0.04022656006738543,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_91",
+   "ms": 0.043418880123645066,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_93",
+   "ms": 0.013652160107158124,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_95",
+   "ms": 0.011556160124018788,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_97",
+   "ms": 0.01274080018978566,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_98",
+   "ms": 0.022486720206215977,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_105",
+   "ms": 0.036344640124589205,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_107",
+   "ms": 0.043133440390229226,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_109",
+   "ms": 0.009939520019106567,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_111",
+   "ms": 0.011264640111476184,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_113",
+   "ms": 0.007828160137869418,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_114",
+   "ms": 0.01514464006293565,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_121",
+   "ms": 0.03067328004166484,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_123",
+   "ms": 0.03177535996772349,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_125",
+   "ms": 0.009482880136929453,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_127",
+   "ms": 0.010237440150231123,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_129",
+   "ms": 0.00776128014549613,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_130",
+   "ms": 0.012485119975171982,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_137",
+   "ms": 0.03012352025602013,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_139",
+   "ms": 0.03464799990411848,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_141",
+   "ms": 0.009061120054684579,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_143",
+   "ms": 0.012935040146112442,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_145",
+   "ms": 0.008908480210229754,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_146",
+   "ms": 0.015176960024982691,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_153",
+   "ms": 0.031035839947871863,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_155",
+   "ms": 0.029289599996991454,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_157",
+   "ms": 0.009462720160372555,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_159",
+   "ms": 0.010454720128327608,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_161",
+   "ms": 0.008744000121951104,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_162",
+   "ms": 0.01402304021641612,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_169",
+   "ms": 0.03274240016005933,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_171",
+   "ms": 0.03297215996310115,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_173",
+   "ms": 0.011467520068399607,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_175",
+   "ms": 0.009922560192644597,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_177",
+   "ms": 0.007564800153486431,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_178",
+   "ms": 0.013854720080271363,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_185",
+   "ms": 0.029695999990217388,
+   "category": "softmax"
+  },
+  {
+   "name": "__myl_Tran_myl0_187",
+   "ms": 0.03222463995218277,
+   "category": "other"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_189",
+   "ms": 0.011568960128352046,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_191",
+   "ms": 0.012033600164577364,
+   "category": "gelu"
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_193",
+   "ms": 0.01080384018830955,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshSlic_myl0_194",
+   "ms": 0.014611519989557564,
+   "category": "layernorm (+residual add)"
+  },
+  {
+   "name": "__myl_Tanh_myl0_196",
+   "ms": 0.04565472016576678,
+   "category": "other"
+  }
+ ]
+}
