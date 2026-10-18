@@ -1,0 +1,11 @@
+== nvcc
+Command 'nvcc' not found, but can be installed with:
+sudo apt install nvidia-cuda-toolkit
+== g++
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+== cmake
+Command 'cmake' not found, but can be installed with:
+sudo snap install cmake  # version 4.3.3, or
+sudo apt  install cmake  # version 3.27.8-1build1
+See 'snap info cmake' for additional versions.
+== TensorRT C++ headers
