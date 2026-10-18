@@ -1,0 +1,1191 @@
+{
+ "engine": "models/bert_fp32.plan",
+ "batch": 1,
+ "seq": 128,
+ "iterations": 100,
+ "sum_ms": 6.900744967064821,
+ "layers": [
+  {
+   "name": "__mye15520_0_myl0_0",
+   "ms": 0.018562880016397686,
+   "type": "shape_call",
+   "pct": 0.26899820388947465
+  },
+  {
+   "name": "__myl_CastGathGathCastReplGathGathReshReshAddReshAddReshMeanSubMulMean_myl0_1",
+   "ms": 0.05512383998371661,
+   "type": "kgen",
+   "pct": 0.7988099871362601
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_2",
+   "ms": 0.03367488018237055,
+   "type": "kgen",
+   "pct": 0.48798905542938653
+  },
+  {
+   "name": "/model/encoder/layer.0/attention/self/value/MatMul+/model/encoder/layer.0/attention/self/key/MatMul+/model/encoder/layer.0/attention/self/query/MatMul_myl0_3",
+   "ms": 0.10058271944522858,
+   "type": "gemm",
+   "pct": 1.4575632040494124
+  },
+  {
+   "name": "__mye75051_myl0_4",
+   "ms": 0.003123520010849461,
+   "type": "reshape",
+   "pct": 0.045263519022324145
+  },
+  {
+   "name": "cast_hvar^75047i64_myl0_5",
+   "ms": 0.005039999994914978,
+   "type": "cast",
+   "pct": 0.0730355928087385
+  },
+  {
+   "name": "__mye75070_myl0_6",
+   "ms": 0.0068768000253476205,
+   "type": "reshape",
+   "pct": 0.09965300932245022
+  },
+  {
+   "name": "cast_hvar^75066i64_myl0_7",
+   "ms": 0.012022719942033291,
+   "type": "cast",
+   "pct": 0.1742235077432091
+  },
+  {
+   "name": "/model/encoder/layer.0/attention/self/MatMul_myl0_8",
+   "ms": 0.06118464021012187,
+   "type": "gemm",
+   "pct": 0.8866381890960722
+  },
+  {
+   "name": "__myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_myl0_9",
+   "ms": 0.039346880037337544,
+   "type": "kgen",
+   "pct": 0.5701830776985436
+  },
+  {
+   "name": "/model/encoder/layer.0/attention/self/MatMul_1_myl0_10",
+   "ms": 0.04900256020016968,
+   "type": "gemm",
+   "pct": 0.7101053644794026
+  },
+  {
+   "name": "__myl_Tran_myl0_11",
+   "ms": 0.04017568008508533,
+   "type": "kgen",
+   "pct": 0.5821933758866871
+  },
+  {
+   "name": "/model/encoder/layer.0/attention/output/dense/MatMul_myl0_12",
+   "ms": 0.08375808011740446,
+   "type": "gemm",
+   "pct": 1.213754174616749
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_13",
+   "ms": 0.010187840140424669,
+   "type": "kgen",
+   "pct": 0.14763391762843237
+  },
+  {
+   "name": "/model/encoder/layer.0/intermediate/dense/MatMul_myl0_14",
+   "ms": 0.07587616007775068,
+   "type": "gemm",
+   "pct": 1.0995357811350044
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_15",
+   "ms": 0.011905280044302344,
+   "type": "kgen",
+   "pct": 0.17252166398153626
+  },
+  {
+   "name": "/model/encoder/layer.0/output/dense/MatMul_myl0_16",
+   "ms": 0.08257183991372585,
+   "type": "gemm",
+   "pct": 1.1965641435499559
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_17",
+   "ms": 0.00813088015653193,
+   "type": "kgen",
+   "pct": 0.11782612160481476
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_18",
+   "ms": 0.02148128016386181,
+   "type": "kgen",
+   "pct": 0.31128929219070545
+  },
+  {
+   "name": "/model/encoder/layer.1/attention/self/value/MatMul+/model/encoder/layer.1/attention/self/key/MatMul+/model/encoder/layer.1/attention/self/query/MatMul_myl0_19",
+   "ms": 0.09168287947773933,
+   "type": "gemm",
+   "pct": 1.328593940441418
+  },
+  {
+   "name": "__mye75013_myl0_20",
+   "ms": 0.004759039988275617,
+   "type": "reshape",
+   "pct": 0.06896414823311227
+  },
+  {
+   "name": "cast_hvar^75009i64_myl0_21",
+   "ms": 0.006371839895145968,
+   "type": "cast",
+   "pct": 0.09233553660592939
+  },
+  {
+   "name": "__mye75032_myl0_22",
+   "ms": 0.010550720002502203,
+   "type": "reshape",
+   "pct": 0.15289247831730654
+  },
+  {
+   "name": "cast_hvar^75028i64_myl0_23",
+   "ms": 0.011451200059382246,
+   "type": "cast",
+   "pct": 0.16594150506989286
+  },
+  {
+   "name": "/model/encoder/layer.1/attention/self/MatMul_myl0_24",
+   "ms": 0.052977599948644635,
+   "type": "gemm",
+   "pct": 0.767708417011363
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_25",
+   "ms": 0.039881600118242204,
+   "type": "kgen",
+   "pct": 0.5779318074872363
+  },
+  {
+   "name": "/model/encoder/layer.1/attention/self/MatMul_1_myl0_26",
+   "ms": 0.05153120011091232,
+   "type": "gemm",
+   "pct": 0.7467483635006834
+  },
+  {
+   "name": "__myl_Tran_myl0_27",
+   "ms": 0.0372630400210619,
+   "type": "kgen",
+   "pct": 0.5399857580436196
+  },
+  {
+   "name": "/model/encoder/layer.1/attention/output/dense/MatMul_myl0_28",
+   "ms": 0.08250720016658306,
+   "type": "gemm",
+   "pct": 1.1956274367530622
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_29",
+   "ms": 0.011714880117215215,
+   "type": "kgen",
+   "pct": 0.1697625426403499
+  },
+  {
+   "name": "/model/encoder/layer.1/intermediate/dense/MatMul_myl0_30",
+   "ms": 0.07199487969279289,
+   "type": "gemm",
+   "pct": 1.0432914132662892
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_31",
+   "ms": 0.012347200056537985,
+   "type": "kgen",
+   "pct": 0.1789256104299964
+  },
+  {
+   "name": "/model/encoder/layer.1/output/dense/MatMul_myl0_32",
+   "ms": 0.08320607997477054,
+   "type": "gemm",
+   "pct": 1.2057550361865006
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_33",
+   "ms": 0.010310080153867602,
+   "type": "kgen",
+   "pct": 0.14940532077441657
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_34",
+   "ms": 0.02264384016394615,
+   "type": "kgen",
+   "pct": 0.3281361689501407
+  },
+  {
+   "name": "/model/encoder/layer.2/attention/self/value/MatMul+/model/encoder/layer.2/attention/self/key/MatMul+/model/encoder/layer.2/attention/self/query/MatMul_myl0_35",
+   "ms": 0.08827840000391006,
+   "type": "gemm",
+   "pct": 1.279258984721741
+  },
+  {
+   "name": "__mye74975_myl0_36",
+   "ms": 0.004903040009085089,
+   "type": "reshape",
+   "pct": 0.07105087975987844
+  },
+  {
+   "name": "cast_hvar^74971i64_myl0_37",
+   "ms": 0.009204159892397002,
+   "type": "cast",
+   "pct": 0.13337922117576706
+  },
+  {
+   "name": "__mye74994_myl0_38",
+   "ms": 0.008010560031980276,
+   "type": "reshape",
+   "pct": 0.11608253993173591
+  },
+  {
+   "name": "cast_hvar^74990i64_myl0_39",
+   "ms": 0.010269440106349066,
+   "type": "cast",
+   "pct": 0.14881639816225659
+  },
+  {
+   "name": "/model/encoder/layer.2/attention/self/MatMul_myl0_40",
+   "ms": 0.05578751992434263,
+   "type": "gemm",
+   "pct": 0.8084274986338384
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_41",
+   "ms": 0.038812480117194355,
+   "type": "kgen",
+   "pct": 0.5624389874199763
+  },
+  {
+   "name": "/model/encoder/layer.2/attention/self/MatMul_1_myl0_42",
+   "ms": 0.0433487998880446,
+   "type": "gemm",
+   "pct": 0.6281756548740082
+  },
+  {
+   "name": "__myl_Tran_myl0_43",
+   "ms": 0.04085023988503963,
+   "type": "kgen",
+   "pct": 0.5919685494827809
+  },
+  {
+   "name": "/model/encoder/layer.2/attention/output/dense/MatMul_myl0_44",
+   "ms": 0.08335264015942812,
+   "type": "gemm",
+   "pct": 1.2078788675316243
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_45",
+   "ms": 0.00971104007679969,
+   "type": "kgen",
+   "pct": 0.1407245177607282
+  },
+  {
+   "name": "/model/encoder/layer.2/intermediate/dense/MatMul_myl0_46",
+   "ms": 0.07154720026999711,
+   "type": "gemm",
+   "pct": 1.036804006110505
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_47",
+   "ms": 0.010188800180330873,
+   "type": "kgen",
+   "pct": 0.1476478297482221
+  },
+  {
+   "name": "/model/encoder/layer.2/output/dense/MatMul_myl0_48",
+   "ms": 0.07466911993920804,
+   "type": "gemm",
+   "pct": 1.0820443342795782
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_49",
+   "ms": 0.00793984015006572,
+   "type": "kgen",
+   "pct": 0.1150577247523302
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_50",
+   "ms": 0.017041280046105386,
+   "type": "kgen",
+   "pct": 0.24694841104023244
+  },
+  {
+   "name": "/model/encoder/layer.3/attention/self/value/MatMul+/model/encoder/layer.3/attention/self/key/MatMul+/model/encoder/layer.3/attention/self/query/MatMul_myl0_51",
+   "ms": 0.08155871972441674,
+   "type": "gemm",
+   "pct": 1.1818828273421487
+  },
+  {
+   "name": "__mye74937_myl0_52",
+   "ms": 0.005718079941580072,
+   "type": "reshape",
+   "pct": 0.08286177751635146
+  },
+  {
+   "name": "cast_hvar^74933i64_myl0_53",
+   "ms": 0.0060351999860722575,
+   "type": "cast",
+   "pct": 0.0874572240370634
+  },
+  {
+   "name": "__mye74956_myl0_54",
+   "ms": 0.009330879915505647,
+   "type": "reshape",
+   "pct": 0.13521554498882554
+  },
+  {
+   "name": "cast_hvar^74952i64_myl0_55",
+   "ms": 0.014965759963961317,
+   "type": "cast",
+   "pct": 0.2168716571238089
+  },
+  {
+   "name": "/model/encoder/layer.3/attention/self/MatMul_myl0_56",
+   "ms": 0.052606400093063714,
+   "type": "gemm",
+   "pct": 0.7623292897236201
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_57",
+   "ms": 0.034571520374156534,
+   "type": "kgen",
+   "pct": 0.5009824379709147
+  },
+  {
+   "name": "/model/encoder/layer.3/attention/self/MatMul_1_myl0_58",
+   "ms": 0.04473120041191578,
+   "type": "gemm",
+   "pct": 0.6482082822275615
+  },
+  {
+   "name": "__myl_Tran_myl0_59",
+   "ms": 0.039116160022094844,
+   "type": "kgen",
+   "pct": 0.5668396703368188
+  },
+  {
+   "name": "/model/encoder/layer.3/attention/output/dense/MatMul_myl0_60",
+   "ms": 0.08380895987153053,
+   "type": "gemm",
+   "pct": 1.2144914827533184
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_61",
+   "ms": 0.013013760149478913,
+   "type": "kgen",
+   "pct": 0.18858485875930314
+  },
+  {
+   "name": "/model/encoder/layer.3/intermediate/dense/MatMul_myl0_62",
+   "ms": 0.06710591964423657,
+   "type": "gemm",
+   "pct": 0.9724445688764464
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_63",
+   "ms": 0.010598720088601112,
+   "type": "kgen",
+   "pct": 0.15358805664005284
+  },
+  {
+   "name": "/model/encoder/layer.3/output/dense/MatMul_myl0_64",
+   "ms": 0.07473376013338566,
+   "type": "gemm",
+   "pct": 1.082981047554538
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_65",
+   "ms": 0.012901120162568986,
+   "type": "kgen",
+   "pct": 0.1869525714128279
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_66",
+   "ms": 0.02301952013745904,
+   "type": "kgen",
+   "pct": 0.33358021847386454
+  },
+  {
+   "name": "/model/encoder/layer.4/attention/self/value/MatMul+/model/encoder/layer.4/attention/self/key/MatMul+/model/encoder/layer.4/attention/self/query/MatMul_myl0_67",
+   "ms": 0.08596095986664296,
+   "type": "gemm",
+   "pct": 1.2456765215481624
+  },
+  {
+   "name": "__mye74899_myl0_68",
+   "ms": 0.00569151998613961,
+   "type": "reshape",
+   "pct": 0.08247689218053302
+  },
+  {
+   "name": "cast_hvar^74895i64_myl0_69",
+   "ms": 0.004831359941745177,
+   "type": "cast",
+   "pct": 0.07001215035193742
+  },
+  {
+   "name": "__mye74918_myl0_70",
+   "ms": 0.006525439992547035,
+   "type": "reshape",
+   "pct": 0.094561384657613
+  },
+  {
+   "name": "cast_hvar^74914i64_myl0_71",
+   "ms": 0.010904640040826053,
+   "type": "cast",
+   "pct": 0.15802120050618618
+  },
+  {
+   "name": "/model/encoder/layer.4/attention/self/MatMul_myl0_72",
+   "ms": 0.0569414399471134,
+   "type": "gemm",
+   "pct": 0.8251491718485142
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_73",
+   "ms": 0.03363711998797953,
+   "type": "kgen",
+   "pct": 0.4874418653133739
+  },
+  {
+   "name": "/model/encoder/layer.4/attention/self/MatMul_1_myl0_74",
+   "ms": 0.047901440151035785,
+   "type": "gemm",
+   "pct": 0.6941488256652716
+  },
+  {
+   "name": "__myl_Tran_myl0_75",
+   "ms": 0.04181216032244265,
+   "type": "kgen",
+   "pct": 0.6059079204056882
+  },
+  {
+   "name": "/model/encoder/layer.4/attention/output/dense/MatMul_myl0_76",
+   "ms": 0.08742912016808986,
+   "type": "gemm",
+   "pct": 1.26695191005265
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_77",
+   "ms": 0.011334720151498914,
+   "type": "kgen",
+   "pct": 0.16425357270260127
+  },
+  {
+   "name": "/model/encoder/layer.4/intermediate/dense/MatMul_myl0_78",
+   "ms": 0.06735615983605385,
+   "type": "gemm",
+   "pct": 0.9760708468074756
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_79",
+   "ms": 0.010846720170229673,
+   "type": "kgen",
+   "pct": 0.1571818727108132
+  },
+  {
+   "name": "/model/encoder/layer.4/output/dense/MatMul_myl0_80",
+   "ms": 0.07410560004413128,
+   "type": "gemm",
+   "pct": 1.0738782609387103
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_81",
+   "ms": 0.011151360087096692,
+   "type": "kgen",
+   "pct": 0.1615964673425663
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_82",
+   "ms": 0.019049280104227365,
+   "type": "kgen",
+   "pct": 0.27604671952294785
+  },
+  {
+   "name": "/model/encoder/layer.5/attention/self/value/MatMul+/model/encoder/layer.5/attention/self/key/MatMul+/model/encoder/layer.5/attention/self/query/MatMul_myl0_83",
+   "ms": 0.08495871976017952,
+   "type": "gemm",
+   "pct": 1.231152870677904
+  },
+  {
+   "name": "__mye74861_myl0_84",
+   "ms": 0.00439839999191463,
+   "type": "reshape",
+   "pct": 0.06373804586181447
+  },
+  {
+   "name": "cast_hvar^74857i64_myl0_85",
+   "ms": 0.010208000076236203,
+   "type": "cast",
+   "pct": 0.14792605906979486
+  },
+  {
+   "name": "__mye74880_myl0_86",
+   "ms": 0.009909120036754758,
+   "type": "reshape",
+   "pct": 0.14359493191022138
+  },
+  {
+   "name": "cast_hvar^74876i64_myl0_87",
+   "ms": 0.013817280068760738,
+   "type": "cast",
+   "pct": 0.20022881782628482
+  },
+  {
+   "name": "/model/encoder/layer.5/attention/self/MatMul_myl0_88",
+   "ms": 0.05181568008847535,
+   "type": "gemm",
+   "pct": 0.7508708166404642
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_89",
+   "ms": 0.04022656006738543,
+   "type": "kgen",
+   "pct": 0.5829306873297695
+  },
+  {
+   "name": "/model/encoder/layer.5/attention/self/MatMul_1_myl0_90",
+   "ms": 0.039417919935658574,
+   "type": "gemm",
+   "pct": 0.5712125302961991
+  },
+  {
+   "name": "__myl_Tran_myl0_91",
+   "ms": 0.043418880123645066,
+   "type": "kgen",
+   "pct": 0.6291912008177424
+  },
+  {
+   "name": "/model/encoder/layer.5/attention/output/dense/MatMul_myl0_92",
+   "ms": 0.08444831978529692,
+   "type": "gemm",
+   "pct": 1.2237565681436329
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_93",
+   "ms": 0.013652160107158124,
+   "type": "kgen",
+   "pct": 0.1978360332444653
+  },
+  {
+   "name": "/model/encoder/layer.5/intermediate/dense/MatMul_myl0_94",
+   "ms": 0.06641183998435736,
+   "type": "gemm",
+   "pct": 0.9623865292996783
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_95",
+   "ms": 0.011556160124018788,
+   "type": "kgen",
+   "pct": 0.16746250121070788
+  },
+  {
+   "name": "/model/encoder/layer.5/output/dense/MatMul_myl0_96",
+   "ms": 0.078865280225873,
+   "type": "gemm",
+   "pct": 1.1428516863363773
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_97",
+   "ms": 0.01274080018978566,
+   "type": "kgen",
+   "pct": 0.18462934437649361
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_98",
+   "ms": 0.022486720206215977,
+   "type": "kgen",
+   "pct": 0.3258593139369492
+  },
+  {
+   "name": "/model/encoder/layer.6/attention/self/value/MatMul+/model/encoder/layer.6/attention/self/key/MatMul+/model/encoder/layer.6/attention/self/query/MatMul_myl0_99",
+   "ms": 0.08398335993289947,
+   "type": "gemm",
+   "pct": 1.2170187470153844
+  },
+  {
+   "name": "__mye74823_myl0_100",
+   "ms": 0.0038140799989923833,
+   "type": "reshape",
+   "pct": 0.05527055437051854
+  },
+  {
+   "name": "cast_hvar^74819i64_myl0_101",
+   "ms": 0.0064534399821423,
+   "type": "cast",
+   "pct": 0.09351801889422992
+  },
+  {
+   "name": "__mye74842_myl0_102",
+   "ms": 0.005346560002071783,
+   "type": "reshape",
+   "pct": 0.07747801183190084
+  },
+  {
+   "name": "cast_hvar^74838i64_myl0_103",
+   "ms": 0.0123680001613684,
+   "type": "cast",
+   "pct": 0.17922702868164442
+  },
+  {
+   "name": "/model/encoder/layer.6/attention/self/MatMul_myl0_104",
+   "ms": 0.05367327968589961,
+   "type": "gemm",
+   "pct": 0.7777896436119003
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_105",
+   "ms": 0.036344640124589205,
+   "type": "kgen",
+   "pct": 0.5266770515075001
+  },
+  {
+   "name": "/model/encoder/layer.6/attention/self/MatMul_1_myl0_106",
+   "ms": 0.043999040089547636,
+   "type": "gemm",
+   "pct": 0.6375984085709849
+  },
+  {
+   "name": "__myl_Tran_myl0_107",
+   "ms": 0.043133440390229226,
+   "type": "kgen",
+   "pct": 0.6250548396744432
+  },
+  {
+   "name": "/model/encoder/layer.6/attention/output/dense/MatMul_myl0_108",
+   "ms": 0.08018111985176801,
+   "type": "gemm",
+   "pct": 1.1619197671330903
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_109",
+   "ms": 0.009939520019106567,
+   "type": "kgen",
+   "pct": 0.1440354638020229
+  },
+  {
+   "name": "/model/encoder/layer.6/intermediate/dense/MatMul_myl0_110",
+   "ms": 0.0673871998116374,
+   "type": "gemm",
+   "pct": 0.976520652962198
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_111",
+   "ms": 0.011264640111476184,
+   "type": "kgen",
+   "pct": 0.16323802959302106
+  },
+  {
+   "name": "/model/encoder/layer.6/output/dense/MatMul_myl0_112",
+   "ms": 0.07332864001393319,
+   "type": "gemm",
+   "pct": 1.0626191862459593
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_113",
+   "ms": 0.007828160137869418,
+   "type": "kgen",
+   "pct": 0.1134393485809267
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_114",
+   "ms": 0.01514464006293565,
+   "type": "kgen",
+   "pct": 0.21946384245782827
+  },
+  {
+   "name": "/model/encoder/layer.7/attention/self/value/MatMul+/model/encoder/layer.7/attention/self/key/MatMul+/model/encoder/layer.7/attention/self/query/MatMul_myl0_115",
+   "ms": 0.07680511996150016,
+   "type": "gemm",
+   "pct": 1.112997514443265
+  },
+  {
+   "name": "__mye74785_myl0_116",
+   "ms": 0.0043427199695725,
+   "type": "reshape",
+   "pct": 0.0629311761309684
+  },
+  {
+   "name": "cast_hvar^74781i64_myl0_117",
+   "ms": 0.005422079967102036,
+   "type": "cast",
+   "pct": 0.0785723859232589
+  },
+  {
+   "name": "__mye74804_myl0_118",
+   "ms": 0.008674240001710132,
+   "type": "reshape",
+   "pct": 0.12570005185106345
+  },
+  {
+   "name": "cast_hvar^74800i64_myl0_119",
+   "ms": 0.009805760000599548,
+   "type": "cast",
+   "pct": 0.1420971220846371
+  },
+  {
+   "name": "/model/encoder/layer.7/attention/self/MatMul_myl0_120",
+   "ms": 0.05562592008151114,
+   "type": "gemm",
+   "pct": 0.8060857247586589
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_121",
+   "ms": 0.03067328004166484,
+   "type": "kgen",
+   "pct": 0.4444923002959706
+  },
+  {
+   "name": "/model/encoder/layer.7/attention/self/MatMul_1_myl0_122",
+   "ms": 0.038233280116692185,
+   "type": "gemm",
+   "pct": 0.5540456907068458
+  },
+  {
+   "name": "__myl_Tran_myl0_123",
+   "ms": 0.03177535996772349,
+   "type": "kgen",
+   "pct": 0.4604627488680964
+  },
+  {
+   "name": "/model/encoder/layer.7/attention/output/dense/MatMul_myl0_124",
+   "ms": 0.08465664070099592,
+   "type": "gemm",
+   "pct": 1.2267753859190071
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_125",
+   "ms": 0.009482880136929453,
+   "type": "kgen",
+   "pct": 0.13741820893524376
+  },
+  {
+   "name": "/model/encoder/layer.7/intermediate/dense/MatMul_myl0_126",
+   "ms": 0.06700319986790419,
+   "type": "gemm",
+   "pct": 0.970956037177005
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_127",
+   "ms": 0.010237440150231123,
+   "type": "kgen",
+   "pct": 0.14835268074811261
+  },
+  {
+   "name": "/model/encoder/layer.7/output/dense/MatMul_myl0_128",
+   "ms": 0.0736633599549532,
+   "type": "gemm",
+   "pct": 1.0674696761947622
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_129",
+   "ms": 0.00776128014549613,
+   "type": "kgen",
+   "pct": 0.11247017796684829
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_130",
+   "ms": 0.012485119975171982,
+   "type": "kgen",
+   "pct": 0.1809242340466095
+  },
+  {
+   "name": "/model/encoder/layer.8/attention/self/value/MatMul+/model/encoder/layer.8/attention/self/key/MatMul+/model/encoder/layer.8/attention/self/query/MatMul_myl0_131",
+   "ms": 0.07605535946786404,
+   "type": "gemm",
+   "pct": 1.1021325933772859
+  },
+  {
+   "name": "__mye74747_myl0_132",
+   "ms": 0.004739200060721487,
+   "type": "reshape",
+   "pct": 0.06867664409190982
+  },
+  {
+   "name": "cast_hvar^74743i64_myl0_133",
+   "ms": 0.005355519959703087,
+   "type": "cast",
+   "pct": 0.07760785227194127
+  },
+  {
+   "name": "__mye74766_myl0_134",
+   "ms": 0.007114880076842383,
+   "type": "reshape",
+   "pct": 0.10310307236102137
+  },
+  {
+   "name": "cast_hvar^74762i64_myl0_135",
+   "ms": 0.009391679983818903,
+   "type": "cast",
+   "pct": 0.13609661027385545
+  },
+  {
+   "name": "/model/encoder/layer.8/attention/self/MatMul_myl0_136",
+   "ms": 0.05315808007493615,
+   "type": "gemm",
+   "pct": 0.7703237886437432
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_137",
+   "ms": 0.03012352025602013,
+   "type": "kgen",
+   "pct": 0.43652562730242356
+  },
+  {
+   "name": "/model/encoder/layer.8/attention/self/MatMul_1_myl0_138",
+   "ms": 0.03743327996693552,
+   "type": "gemm",
+   "pct": 0.5424527372855148
+  },
+  {
+   "name": "__myl_Tran_myl0_139",
+   "ms": 0.03464799990411848,
+   "type": "kgen",
+   "pct": 0.502090717299117
+  },
+  {
+   "name": "/model/encoder/layer.8/attention/output/dense/MatMul_myl0_140",
+   "ms": 0.08168704006820918,
+   "type": "gemm",
+   "pct": 1.183742341704799
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_141",
+   "ms": 0.009061120054684579,
+   "type": "kgen",
+   "pct": 0.13130640384379624
+  },
+  {
+   "name": "/model/encoder/layer.8/intermediate/dense/MatMul_myl0_142",
+   "ms": 0.06651456031948327,
+   "type": "gemm",
+   "pct": 0.9638750690967026
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_143",
+   "ms": 0.012935040146112442,
+   "type": "kgen",
+   "pct": 0.187444112307403
+  },
+  {
+   "name": "/model/encoder/layer.8/output/dense/MatMul_myl0_144",
+   "ms": 0.07338047973811626,
+   "type": "gemm",
+   "pct": 1.0633704054901205
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_145",
+   "ms": 0.008908480210229754,
+   "type": "kgen",
+   "pct": 0.12909447099910587
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_146",
+   "ms": 0.015176960024982691,
+   "type": "kgen",
+   "pct": 0.21993219713839238
+  },
+  {
+   "name": "/model/encoder/layer.9/attention/self/value/MatMul+/model/encoder/layer.9/attention/self/key/MatMul+/model/encoder/layer.9/attention/self/query/MatMul_myl0_147",
+   "ms": 0.07706047981977462,
+   "type": "gemm",
+   "pct": 1.1166979824288699
+  },
+  {
+   "name": "__mye74709_myl0_148",
+   "ms": 0.0032783999922685325,
+   "type": "reshape",
+   "pct": 0.047507914115292614
+  },
+  {
+   "name": "cast_hvar^74705i64_myl0_149",
+   "ms": 0.00640703990822658,
+   "type": "cast",
+   "pct": 0.09284562665053488
+  },
+  {
+   "name": "__mye74728_myl0_150",
+   "ms": 0.0072697599895764145,
+   "type": "reshape",
+   "pct": 0.10534746645866194
+  },
+  {
+   "name": "cast_hvar^74724i64_myl0_151",
+   "ms": 0.0135180799709633,
+   "type": "cast",
+   "pct": 0.19589305264114276
+  },
+  {
+   "name": "/model/encoder/layer.9/attention/self/MatMul_myl0_152",
+   "ms": 0.056361920358613135,
+   "type": "gemm",
+   "pct": 0.8167512439252809
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_153",
+   "ms": 0.031035839947871863,
+   "type": "kgen",
+   "pct": 0.4497462244438331
+  },
+  {
+   "name": "/model/encoder/layer.9/attention/self/MatMul_1_myl0_154",
+   "ms": 0.03998144009150564,
+   "type": "gemm",
+   "pct": 0.5793786074159388
+  },
+  {
+   "name": "__myl_Tran_myl0_155",
+   "ms": 0.029289599996991454,
+   "type": "kgen",
+   "pct": 0.4244411311645613
+  },
+  {
+   "name": "/model/encoder/layer.9/attention/output/dense/MatMul_myl0_156",
+   "ms": 0.08263968009501696,
+   "type": "gemm",
+   "pct": 1.1975472284431794
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_157",
+   "ms": 0.009462720160372555,
+   "type": "kgen",
+   "pct": 0.13712606690343246
+  },
+  {
+   "name": "/model/encoder/layer.9/intermediate/dense/MatMul_myl0_158",
+   "ms": 0.06697376023977995,
+   "type": "gemm",
+   "pct": 0.9705294219598833
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_159",
+   "ms": 0.010454720128327608,
+   "type": "kgen",
+   "pct": 0.15150132599052482
+  },
+  {
+   "name": "/model/encoder/layer.9/output/dense/MatMul_myl0_160",
+   "ms": 0.07633664011955262,
+   "type": "gemm",
+   "pct": 1.1062086844809427
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_161",
+   "ms": 0.008744000121951104,
+   "type": "kgen",
+   "pct": 0.1267109589426009
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_162",
+   "ms": 0.01402304021641612,
+   "type": "kgen",
+   "pct": 0.20321052702779008
+  },
+  {
+   "name": "/model/encoder/layer.10/attention/self/value/MatMul+/model/encoder/layer.10/attention/self/key/MatMul+/model/encoder/layer.10/attention/self/query/MatMul_myl0_163",
+   "ms": 0.07267743945121766,
+   "type": "gemm",
+   "pct": 1.0531825157730825
+  },
+  {
+   "name": "__mye74671_myl0_164",
+   "ms": 0.006198720009997487,
+   "type": "reshape",
+   "pct": 0.08982682361950937
+  },
+  {
+   "name": "cast_hvar^74667i64_myl0_165",
+   "ms": 0.007083200014894828,
+   "type": "cast",
+   "pct": 0.10264399059378097
+  },
+  {
+   "name": "__mye74690_myl0_166",
+   "ms": 0.009266880003269761,
+   "type": "reshape",
+   "pct": 0.1342881101605376
+  },
+  {
+   "name": "cast_hvar^74686i64_myl0_167",
+   "ms": 0.013683839930454269,
+   "type": "cast",
+   "pct": 0.198295111553363
+  },
+  {
+   "name": "/model/encoder/layer.10/attention/self/MatMul_myl0_168",
+   "ms": 0.0547596800327301,
+   "type": "gemm",
+   "pct": 0.7935328764369873
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_169",
+   "ms": 0.03274240016005933,
+   "type": "kgen",
+   "pct": 0.47447631112769645
+  },
+  {
+   "name": "/model/encoder/layer.10/attention/self/MatMul_1_myl0_170",
+   "ms": 0.0383574400562793,
+   "type": "gemm",
+   "pct": 0.5558449158655743
+  },
+  {
+   "name": "__myl_Tran_myl0_171",
+   "ms": 0.03297215996310115,
+   "type": "kgen",
+   "pct": 0.47780580387287674
+  },
+  {
+   "name": "/model/encoder/layer.10/attention/output/dense/MatMul_myl0_172",
+   "ms": 0.07706016026437283,
+   "type": "gemm",
+   "pct": 1.116693351691126
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_173",
+   "ms": 0.011467520068399607,
+   "type": "kgen",
+   "pct": 0.1661780014060892
+  },
+  {
+   "name": "/model/encoder/layer.10/intermediate/dense/MatMul_myl0_174",
+   "ms": 0.06722719982266426,
+   "type": "gemm",
+   "pct": 0.9742020628717545
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_175",
+   "ms": 0.009922560192644597,
+   "type": "kgen",
+   "pct": 0.1437896957502703
+  },
+  {
+   "name": "/model/encoder/layer.10/output/dense/MatMul_myl0_176",
+   "ms": 0.07463423997163772,
+   "type": "gemm",
+   "pct": 1.0815388820749714
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_177",
+   "ms": 0.007564800153486431,
+   "type": "kgen",
+   "pct": 0.10962294925534773
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_178",
+   "ms": 0.013854720080271363,
+   "type": "kgen",
+   "pct": 0.20077136811164265
+  },
+  {
+   "name": "/model/encoder/layer.11/attention/self/value/MatMul+/model/encoder/layer.11/attention/self/key/MatMul+/model/encoder/layer.11/attention/self/query/MatMul_myl0_179",
+   "ms": 0.07517055973410607,
+   "type": "gemm",
+   "pct": 1.0893107931516457
+  },
+  {
+   "name": "__mye74617_myl0_180",
+   "ms": 0.0038265599671285597,
+   "type": "reshape",
+   "pct": 0.05545140394829224
+  },
+  {
+   "name": "cast_hvar^74613i64_myl0_181",
+   "ms": 0.003628159996587783,
+   "type": "cast",
+   "pct": 0.052576352464899063
+  },
+  {
+   "name": "__mye74652_myl0_182",
+   "ms": 0.005551360022509471,
+   "type": "reshape",
+   "pct": 0.080445807648369
+  },
+  {
+   "name": "cast_hvar^74648i64_myl0_183",
+   "ms": 0.01130079997703433,
+   "type": "cast",
+   "pct": 0.16376202904135204
+  },
+  {
+   "name": "/model/encoder/layer.11/attention/self/MatMul_myl0_184",
+   "ms": 0.05303039993159473,
+   "type": "gemm",
+   "pct": 0.7684735515468674
+  },
+  {
+   "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_185",
+   "ms": 0.029695999990217388,
+   "type": "kgen",
+   "pct": 0.4303303503019958
+  },
+  {
+   "name": "/model/encoder/layer.11/attention/self/MatMul_1_myl0_186",
+   "ms": 0.03725728016346693,
+   "type": "gemm",
+   "pct": 0.5399022908582294
+  },
+  {
+   "name": "__myl_Tran_myl0_187",
+   "ms": 0.03222463995218277,
+   "type": "kgen",
+   "pct": 0.46697335006555496
+  },
+  {
+   "name": "/model/encoder/layer.11/attention/output/dense/MatMul_myl0_188",
+   "ms": 0.08131616033613681,
+   "type": "gemm",
+   "pct": 1.1783678533873427
+  },
+  {
+   "name": "__myl_AddMeanSubMulMeanAddSqrtDivMulMulAdd_myl0_189",
+   "ms": 0.011568960128352046,
+   "type": "kgen",
+   "pct": 0.1676479884935208
+  },
+  {
+   "name": "/model/encoder/layer.11/intermediate/dense/MatMul_myl0_190",
+   "ms": 0.06613087985664606,
+   "type": "gemm",
+   "pct": 0.9583150829695758
+  },
+  {
+   "name": "__myl_DivErfAddMulMul_myl0_191",
+   "ms": 0.012033600164577364,
+   "type": "kgen",
+   "pct": 0.17438117510515339
+  },
+  {
+   "name": "/model/encoder/layer.11/output/dense/MatMul_myl0_192",
+   "ms": 0.07317056007683277,
+   "type": "gemm",
+   "pct": 1.060328419990216
+  },
+  {
+   "name": "__myl_AddMeanSubMulMean_myl0_193",
+   "ms": 0.01080384018830955,
+   "type": "kgen",
+   "pct": 0.1565604907857489
+  },
+  {
+   "name": "__myl_AddSqrtDivMulMulAddReshSlic_myl0_194",
+   "ms": 0.014611519989557564,
+   "type": "kgen",
+   "pct": 0.21173829868070698
+  },
+  {
+   "name": "/model/pooler/dense/Gemm_myl0_195",
+   "ms": 0.03357535979710519,
+   "type": "gemm",
+   "pct": 0.4865468867107868
+  },
+  {
+   "name": "__myl_Tanh_myl0_196",
+   "ms": 0.04565472016576678,
+   "type": "kgen",
+   "pct": 0.6615911815849306
+  }
+ ]
+}
