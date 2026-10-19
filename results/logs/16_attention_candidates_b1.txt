@@ -1,0 +1,97 @@
+profile: results/profile_original_b1.json
+batch=1   seq=128
+
+candidate layers found: 84
+candidate total time: 4.251 ms
+candidate share of profiled time: 61.6%
+
+category               count    total ms     share
+attention gemm            48       3.157     45.7%
+transpose                 24       0.677      9.8%
+softmax                   12       0.417      6.0%
+
+candidate layers in execution order:
+  0.0337 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_2
+  0.1006 ms  attention gemm      /model/encoder/layer.0/attention/self/value/MatMul+/model/encoder/layer.0/attention/self/key/MatMul+
+  0.0612 ms  attention gemm      /model/encoder/layer.0/attention/self/MatMul_myl0_8
+  0.0393 ms  softmax             __myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_
+  0.0490 ms  attention gemm      /model/encoder/layer.0/attention/self/MatMul_1_myl0_10
+  0.0402 ms  transpose           __myl_Tran_myl0_11
+  0.0838 ms  attention gemm      /model/encoder/layer.0/attention/output/dense/MatMul_myl0_12
+  0.0215 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_18
+  0.0917 ms  attention gemm      /model/encoder/layer.1/attention/self/value/MatMul+/model/encoder/layer.1/attention/self/key/MatMul+
+  0.0530 ms  attention gemm      /model/encoder/layer.1/attention/self/MatMul_myl0_24
+  0.0399 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_25
+  0.0515 ms  attention gemm      /model/encoder/layer.1/attention/self/MatMul_1_myl0_26
+  0.0373 ms  transpose           __myl_Tran_myl0_27
+  0.0825 ms  attention gemm      /model/encoder/layer.1/attention/output/dense/MatMul_myl0_28
+  0.0226 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_34
+  0.0883 ms  attention gemm      /model/encoder/layer.2/attention/self/value/MatMul+/model/encoder/layer.2/attention/self/key/MatMul+
+  0.0558 ms  attention gemm      /model/encoder/layer.2/attention/self/MatMul_myl0_40
+  0.0388 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_41
+  0.0433 ms  attention gemm      /model/encoder/layer.2/attention/self/MatMul_1_myl0_42
+  0.0409 ms  transpose           __myl_Tran_myl0_43
+  0.0834 ms  attention gemm      /model/encoder/layer.2/attention/output/dense/MatMul_myl0_44
+  0.0170 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_50
+  0.0816 ms  attention gemm      /model/encoder/layer.3/attention/self/value/MatMul+/model/encoder/layer.3/attention/self/key/MatMul+
+  0.0526 ms  attention gemm      /model/encoder/layer.3/attention/self/MatMul_myl0_56
+  0.0346 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_57
+  0.0447 ms  attention gemm      /model/encoder/layer.3/attention/self/MatMul_1_myl0_58
+  0.0391 ms  transpose           __myl_Tran_myl0_59
+  0.0838 ms  attention gemm      /model/encoder/layer.3/attention/output/dense/MatMul_myl0_60
+  0.0230 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_66
+  0.0860 ms  attention gemm      /model/encoder/layer.4/attention/self/value/MatMul+/model/encoder/layer.4/attention/self/key/MatMul+
+  0.0569 ms  attention gemm      /model/encoder/layer.4/attention/self/MatMul_myl0_72
+  0.0336 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_73
+  0.0479 ms  attention gemm      /model/encoder/layer.4/attention/self/MatMul_1_myl0_74
+  0.0418 ms  transpose           __myl_Tran_myl0_75
+  0.0874 ms  attention gemm      /model/encoder/layer.4/attention/output/dense/MatMul_myl0_76
+  0.0190 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_82
+  0.0850 ms  attention gemm      /model/encoder/layer.5/attention/self/value/MatMul+/model/encoder/layer.5/attention/self/key/MatMul+
+  0.0518 ms  attention gemm      /model/encoder/layer.5/attention/self/MatMul_myl0_88
+  0.0402 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_89
+  0.0394 ms  attention gemm      /model/encoder/layer.5/attention/self/MatMul_1_myl0_90
+  0.0434 ms  transpose           __myl_Tran_myl0_91
+  0.0844 ms  attention gemm      /model/encoder/layer.5/attention/output/dense/MatMul_myl0_92
+  0.0225 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_98
+  0.0840 ms  attention gemm      /model/encoder/layer.6/attention/self/value/MatMul+/model/encoder/layer.6/attention/self/key/MatMul+
+  0.0537 ms  attention gemm      /model/encoder/layer.6/attention/self/MatMul_myl0_104
+  0.0363 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_105
+  0.0440 ms  attention gemm      /model/encoder/layer.6/attention/self/MatMul_1_myl0_106
+  0.0431 ms  transpose           __myl_Tran_myl0_107
+  0.0802 ms  attention gemm      /model/encoder/layer.6/attention/output/dense/MatMul_myl0_108
+  0.0151 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_114
+  0.0768 ms  attention gemm      /model/encoder/layer.7/attention/self/value/MatMul+/model/encoder/layer.7/attention/self/key/MatMul+
+  0.0556 ms  attention gemm      /model/encoder/layer.7/attention/self/MatMul_myl0_120
+  0.0307 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_121
+  0.0382 ms  attention gemm      /model/encoder/layer.7/attention/self/MatMul_1_myl0_122
+  0.0318 ms  transpose           __myl_Tran_myl0_123
+  0.0847 ms  attention gemm      /model/encoder/layer.7/attention/output/dense/MatMul_myl0_124
+  0.0125 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_130
+  0.0761 ms  attention gemm      /model/encoder/layer.8/attention/self/value/MatMul+/model/encoder/layer.8/attention/self/key/MatMul+
+  0.0532 ms  attention gemm      /model/encoder/layer.8/attention/self/MatMul_myl0_136
+  0.0301 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_137
+  0.0374 ms  attention gemm      /model/encoder/layer.8/attention/self/MatMul_1_myl0_138
+  0.0346 ms  transpose           __myl_Tran_myl0_139
+  0.0817 ms  attention gemm      /model/encoder/layer.8/attention/output/dense/MatMul_myl0_140
+  0.0152 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_146
+  0.0771 ms  attention gemm      /model/encoder/layer.9/attention/self/value/MatMul+/model/encoder/layer.9/attention/self/key/MatMul+
+  0.0564 ms  attention gemm      /model/encoder/layer.9/attention/self/MatMul_myl0_152
+  0.0310 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_153
+  0.0400 ms  attention gemm      /model/encoder/layer.9/attention/self/MatMul_1_myl0_154
+  0.0293 ms  transpose           __myl_Tran_myl0_155
+  0.0826 ms  attention gemm      /model/encoder/layer.9/attention/output/dense/MatMul_myl0_156
+  0.0140 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_162
+  0.0727 ms  attention gemm      /model/encoder/layer.10/attention/self/value/MatMul+/model/encoder/layer.10/attention/self/key/MatMu
+  0.0548 ms  attention gemm      /model/encoder/layer.10/attention/self/MatMul_myl0_168
+  0.0327 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_169
+  0.0384 ms  attention gemm      /model/encoder/layer.10/attention/self/MatMul_1_myl0_170
+  0.0330 ms  transpose           __myl_Tran_myl0_171
+  0.0771 ms  attention gemm      /model/encoder/layer.10/attention/output/dense/MatMul_myl0_172
+  0.0139 ms  transpose           __myl_AddSqrtDivMulMulAddReshTran_myl0_178
+  0.0752 ms  attention gemm      /model/encoder/layer.11/attention/self/value/MatMul+/model/encoder/layer.11/attention/self/key/MatMu
+  0.0530 ms  attention gemm      /model/encoder/layer.11/attention/self/MatMul_myl0_184
+  0.0297 ms  softmax             __myl_MulAddMaxrSubExpSumDivMul_myl0_185
+  0.0373 ms  attention gemm      /model/encoder/layer.11/attention/self/MatMul_1_myl0_186
+  0.0322 ms  transpose           __myl_Tran_myl0_187
+  0.0813 ms  attention gemm      /model/encoder/layer.11/attention/output/dense/MatMul_myl0_188

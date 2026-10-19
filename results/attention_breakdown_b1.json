@@ -1,0 +1,467 @@
+{
+  "profile": "results/profile_original_b1.json",
+  "layers": "results/trt_original_layers.json",
+  "batch": 1,
+  "seq": 128,
+  "total_profiled_ms": 6.900744967064821,
+  "by_category": {
+    "attention_transpose_candidate": {
+      "count": 24,
+      "ms": 0.6767606419976799,
+      "share_of_profiled_time": 9.807066414244474
+    },
+    "qkv_projection_gemm": {
+      "count": 12,
+      "ms": 0.9947747166454792,
+      "share_of_profiled_time": 14.41546849497032
+    },
+    "q_times_k_transpose_gemm": {
+      "count": 12,
+      "ms": 0.6579225603770466,
+      "share_of_profiled_time": 9.534080211877312
+    },
+    "softmax": {
+      "count": 12,
+      "ms": 0.4170918412227183,
+      "share_of_profiled_time": 6.0441567281992326
+    },
+    "scores_times_v_gemm": {
+      "count": 12,
+      "ms": 0.5111948811821639,
+      "share_of_profiled_time": 7.407821671746214
+    },
+    "output_projection_gemm": {
+      "count": 12,
+      "ms": 0.9928451215848326,
+      "share_of_profiled_time": 14.387506368129582
+    }
+  },
+  "possible_plugin_target": {
+    "attention_core_ms": 1.5862092827819287,
+    "attention_core_share": 22.98605861182276,
+    "attention_with_transposes_ms": 2.2629699247796085,
+    "attention_with_transposes_share": 32.79312502606723
+  },
+  "rows": [
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_2",
+      "ms": 0.03367488018237055,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.0/attention/self/value/MatMul+/model/encoder/layer.0/attention/self/key/MatMul+/model/encoder/layer.0/attention/self/query/MatMul_myl0_3",
+      "ms": 0.10058271944522858,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.0/attention/self/MatMul_myl0_8",
+      "ms": 0.06118464021012187,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_myl0_9",
+      "ms": 0.039346880037337544,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.0/attention/self/MatMul_1_myl0_10",
+      "ms": 0.04900256020016968,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_11",
+      "ms": 0.04017568008508533,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.0/attention/output/dense/MatMul_myl0_12",
+      "ms": 0.08375808011740446,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_18",
+      "ms": 0.02148128016386181,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.1/attention/self/value/MatMul+/model/encoder/layer.1/attention/self/key/MatMul+/model/encoder/layer.1/attention/self/query/MatMul_myl0_19",
+      "ms": 0.09168287947773933,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.1/attention/self/MatMul_myl0_24",
+      "ms": 0.052977599948644635,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_25",
+      "ms": 0.039881600118242204,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.1/attention/self/MatMul_1_myl0_26",
+      "ms": 0.05153120011091232,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_27",
+      "ms": 0.0372630400210619,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.1/attention/output/dense/MatMul_myl0_28",
+      "ms": 0.08250720016658306,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_34",
+      "ms": 0.02264384016394615,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.2/attention/self/value/MatMul+/model/encoder/layer.2/attention/self/key/MatMul+/model/encoder/layer.2/attention/self/query/MatMul_myl0_35",
+      "ms": 0.08827840000391006,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.2/attention/self/MatMul_myl0_40",
+      "ms": 0.05578751992434263,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_41",
+      "ms": 0.038812480117194355,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.2/attention/self/MatMul_1_myl0_42",
+      "ms": 0.0433487998880446,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_43",
+      "ms": 0.04085023988503963,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.2/attention/output/dense/MatMul_myl0_44",
+      "ms": 0.08335264015942812,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_50",
+      "ms": 0.017041280046105386,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.3/attention/self/value/MatMul+/model/encoder/layer.3/attention/self/key/MatMul+/model/encoder/layer.3/attention/self/query/MatMul_myl0_51",
+      "ms": 0.08155871972441674,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.3/attention/self/MatMul_myl0_56",
+      "ms": 0.052606400093063714,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_57",
+      "ms": 0.034571520374156534,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.3/attention/self/MatMul_1_myl0_58",
+      "ms": 0.04473120041191578,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_59",
+      "ms": 0.039116160022094844,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.3/attention/output/dense/MatMul_myl0_60",
+      "ms": 0.08380895987153053,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_66",
+      "ms": 0.02301952013745904,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.4/attention/self/value/MatMul+/model/encoder/layer.4/attention/self/key/MatMul+/model/encoder/layer.4/attention/self/query/MatMul_myl0_67",
+      "ms": 0.08596095986664296,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.4/attention/self/MatMul_myl0_72",
+      "ms": 0.0569414399471134,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_73",
+      "ms": 0.03363711998797953,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.4/attention/self/MatMul_1_myl0_74",
+      "ms": 0.047901440151035785,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_75",
+      "ms": 0.04181216032244265,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.4/attention/output/dense/MatMul_myl0_76",
+      "ms": 0.08742912016808986,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_82",
+      "ms": 0.019049280104227365,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.5/attention/self/value/MatMul+/model/encoder/layer.5/attention/self/key/MatMul+/model/encoder/layer.5/attention/self/query/MatMul_myl0_83",
+      "ms": 0.08495871976017952,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.5/attention/self/MatMul_myl0_88",
+      "ms": 0.05181568008847535,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_89",
+      "ms": 0.04022656006738543,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.5/attention/self/MatMul_1_myl0_90",
+      "ms": 0.039417919935658574,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_91",
+      "ms": 0.043418880123645066,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.5/attention/output/dense/MatMul_myl0_92",
+      "ms": 0.08444831978529692,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_98",
+      "ms": 0.022486720206215977,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.6/attention/self/value/MatMul+/model/encoder/layer.6/attention/self/key/MatMul+/model/encoder/layer.6/attention/self/query/MatMul_myl0_99",
+      "ms": 0.08398335993289947,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.6/attention/self/MatMul_myl0_104",
+      "ms": 0.05367327968589961,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_105",
+      "ms": 0.036344640124589205,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.6/attention/self/MatMul_1_myl0_106",
+      "ms": 0.043999040089547636,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_107",
+      "ms": 0.043133440390229226,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.6/attention/output/dense/MatMul_myl0_108",
+      "ms": 0.08018111985176801,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_114",
+      "ms": 0.01514464006293565,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.7/attention/self/value/MatMul+/model/encoder/layer.7/attention/self/key/MatMul+/model/encoder/layer.7/attention/self/query/MatMul_myl0_115",
+      "ms": 0.07680511996150016,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.7/attention/self/MatMul_myl0_120",
+      "ms": 0.05562592008151114,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_121",
+      "ms": 0.03067328004166484,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.7/attention/self/MatMul_1_myl0_122",
+      "ms": 0.038233280116692185,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_123",
+      "ms": 0.03177535996772349,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.7/attention/output/dense/MatMul_myl0_124",
+      "ms": 0.08465664070099592,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_130",
+      "ms": 0.012485119975171982,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.8/attention/self/value/MatMul+/model/encoder/layer.8/attention/self/key/MatMul+/model/encoder/layer.8/attention/self/query/MatMul_myl0_131",
+      "ms": 0.07605535946786404,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.8/attention/self/MatMul_myl0_136",
+      "ms": 0.05315808007493615,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_137",
+      "ms": 0.03012352025602013,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.8/attention/self/MatMul_1_myl0_138",
+      "ms": 0.03743327996693552,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_139",
+      "ms": 0.03464799990411848,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.8/attention/output/dense/MatMul_myl0_140",
+      "ms": 0.08168704006820918,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_146",
+      "ms": 0.015176960024982691,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.9/attention/self/value/MatMul+/model/encoder/layer.9/attention/self/key/MatMul+/model/encoder/layer.9/attention/self/query/MatMul_myl0_147",
+      "ms": 0.07706047981977462,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.9/attention/self/MatMul_myl0_152",
+      "ms": 0.056361920358613135,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_153",
+      "ms": 0.031035839947871863,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.9/attention/self/MatMul_1_myl0_154",
+      "ms": 0.03998144009150564,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_155",
+      "ms": 0.029289599996991454,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.9/attention/output/dense/MatMul_myl0_156",
+      "ms": 0.08263968009501696,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_162",
+      "ms": 0.01402304021641612,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.10/attention/self/value/MatMul+/model/encoder/layer.10/attention/self/key/MatMul+/model/encoder/layer.10/attention/self/query/MatMul_myl0_163",
+      "ms": 0.07267743945121766,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.10/attention/self/MatMul_myl0_168",
+      "ms": 0.0547596800327301,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_169",
+      "ms": 0.03274240016005933,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.10/attention/self/MatMul_1_myl0_170",
+      "ms": 0.0383574400562793,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_171",
+      "ms": 0.03297215996310115,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.10/attention/output/dense/MatMul_myl0_172",
+      "ms": 0.07706016026437283,
+      "category": "output_projection_gemm"
+    },
+    {
+      "name": "__myl_AddSqrtDivMulMulAddReshTran_myl0_178",
+      "ms": 0.013854720080271363,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.11/attention/self/value/MatMul+/model/encoder/layer.11/attention/self/key/MatMul+/model/encoder/layer.11/attention/self/query/MatMul_myl0_179",
+      "ms": 0.07517055973410607,
+      "category": "qkv_projection_gemm"
+    },
+    {
+      "name": "/model/encoder/layer.11/attention/self/MatMul_myl0_184",
+      "ms": 0.05303039993159473,
+      "category": "q_times_k_transpose_gemm"
+    },
+    {
+      "name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_185",
+      "ms": 0.029695999990217388,
+      "category": "softmax"
+    },
+    {
+      "name": "/model/encoder/layer.11/attention/self/MatMul_1_myl0_186",
+      "ms": 0.03725728016346693,
+      "category": "scores_times_v_gemm"
+    },
+    {
+      "name": "__myl_Tran_myl0_187",
+      "ms": 0.03222463995218277,
+      "category": "attention_transpose_candidate"
+    },
+    {
+      "name": "/model/encoder/layer.11/attention/output/dense/MatMul_myl0_188",
+      "ms": 0.08131616033613681,
+      "category": "output_projection_gemm"
+    }
+  ]
+}

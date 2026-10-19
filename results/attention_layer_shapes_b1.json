@@ -1,0 +1,1382 @@
+{
+  "source_breakdown": "results/attention_breakdown_b1.json",
+  "source_layers": "results/trt_original_layers.json",
+  "selected_layers": [
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.0/attention/self/MatMul_myl0_8",
+      "time_ms": 0.06118464021012187,
+      "inputs": [
+        {
+          "name": "__mye58525_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58525_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye44882_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.0/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_myl0_9",
+      "time_ms": 0.039346880037337544,
+      "inputs": [
+        {
+          "name": "attention_mask",
+          "dimensions": [
+            -1,
+            128
+          ],
+          "datatype": "Int64"
+        },
+        {
+          "name": "__mye44882_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.0/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/Range_2]\u001f[ONNX Layer: /model/Unsqueeze_6]\u001e[ONNX Layer: /model/Unsqueeze_7]\u001e[ONNX Layer: /model/Unsqueeze_8]\u001f[ONNX Layer: /model/And_1]\u001f[ONNX Layer: /model/Expand]\u001f[ONNX Layer: /model/Where_1]\u001f[ONNX Layer: /model/encoder/layer.0/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.0/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.0/attention/self/Mul]\u001f[ONNX Layer: /model/Cast]\u001f[ONNX Layer: /model/Flatten]\u001f[ONNX Layer: /model/Reshape]\u001e[ONNX Layer: /model/Reshape_1]\u001f[ONNX Layer: /model/Gather_4]\u001f[ONNX Layer: /model/Add]\u001f[ONNX Layer: /model/GreaterOrEqual]\u001f[ONNX Layer: /model/Unsqueeze_3]\u001e[ONNX Layer: /model/Unsqueeze_4]\u001e[ONNX Layer: /model/Unsqueeze_5]\u001f[ONNX Layer: /model/Unsqueeze]\u001e[ONNX Layer: /model/Unsqueeze_1]\u001e[ONNX Layer: /model/Unsqueeze_2]\u001f[ONNX Layer: /model/Mul]\u001f[ONNX Layer: /model/Range]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.0/attention/self/MatMul_1_myl0_10",
+      "time_ms": 0.04900256020016968,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.0/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58525_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye44911_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.0/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.1/attention/self/MatMul_myl0_24",
+      "time_ms": 0.052977599948644635,
+      "inputs": [
+        {
+          "name": "__mye58500_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58500_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45090_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.1/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_25",
+      "time_ms": 0.039881600118242204,
+      "inputs": [
+        {
+          "name": "__mye45090_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.1/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.1/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.1/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.1/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.1/attention/self/MatMul_1_myl0_26",
+      "time_ms": 0.05153120011091232,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.1/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58500_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45119_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.1/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.2/attention/self/MatMul_myl0_40",
+      "time_ms": 0.05578751992434263,
+      "inputs": [
+        {
+          "name": "__mye58475_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58475_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45298_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.2/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_41",
+      "time_ms": 0.038812480117194355,
+      "inputs": [
+        {
+          "name": "__mye45298_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.2/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.2/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.2/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.2/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.2/attention/self/MatMul_1_myl0_42",
+      "time_ms": 0.0433487998880446,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.2/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58475_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45327_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.2/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.3/attention/self/MatMul_myl0_56",
+      "time_ms": 0.052606400093063714,
+      "inputs": [
+        {
+          "name": "__mye58450_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58450_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45506_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.3/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_57",
+      "time_ms": 0.034571520374156534,
+      "inputs": [
+        {
+          "name": "__mye45506_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.3/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.3/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.3/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.3/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.3/attention/self/MatMul_1_myl0_58",
+      "time_ms": 0.04473120041191578,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.3/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58450_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45535_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.3/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.4/attention/self/MatMul_myl0_72",
+      "time_ms": 0.0569414399471134,
+      "inputs": [
+        {
+          "name": "__mye58425_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58425_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45714_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.4/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_73",
+      "time_ms": 0.03363711998797953,
+      "inputs": [
+        {
+          "name": "__mye45714_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.4/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.4/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.4/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.4/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.4/attention/self/MatMul_1_myl0_74",
+      "time_ms": 0.047901440151035785,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.4/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58425_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45743_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.4/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.5/attention/self/MatMul_myl0_88",
+      "time_ms": 0.05181568008847535,
+      "inputs": [
+        {
+          "name": "__mye58400_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58400_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45922_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.5/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_89",
+      "time_ms": 0.04022656006738543,
+      "inputs": [
+        {
+          "name": "__mye45922_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.5/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.5/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.5/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.5/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.5/attention/self/MatMul_1_myl0_90",
+      "time_ms": 0.039417919935658574,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.5/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58400_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye45951_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.5/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.6/attention/self/MatMul_myl0_104",
+      "time_ms": 0.05367327968589961,
+      "inputs": [
+        {
+          "name": "__mye58375_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58375_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46130_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.6/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_105",
+      "time_ms": 0.036344640124589205,
+      "inputs": [
+        {
+          "name": "__mye46130_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.6/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.6/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.6/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.6/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.6/attention/self/MatMul_1_myl0_106",
+      "time_ms": 0.043999040089547636,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.6/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58375_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46159_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.6/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.7/attention/self/MatMul_myl0_120",
+      "time_ms": 0.05562592008151114,
+      "inputs": [
+        {
+          "name": "__mye58350_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58350_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46338_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.7/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_121",
+      "time_ms": 0.03067328004166484,
+      "inputs": [
+        {
+          "name": "__mye46338_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.7/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.7/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.7/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.7/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.7/attention/self/MatMul_1_myl0_122",
+      "time_ms": 0.038233280116692185,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.7/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58350_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46367_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.7/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.8/attention/self/MatMul_myl0_136",
+      "time_ms": 0.05315808007493615,
+      "inputs": [
+        {
+          "name": "__mye58325_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58325_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46546_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.8/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_137",
+      "time_ms": 0.03012352025602013,
+      "inputs": [
+        {
+          "name": "__mye46546_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.8/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.8/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.8/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.8/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.8/attention/self/MatMul_1_myl0_138",
+      "time_ms": 0.03743327996693552,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.8/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58325_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46575_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.8/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.9/attention/self/MatMul_myl0_152",
+      "time_ms": 0.056361920358613135,
+      "inputs": [
+        {
+          "name": "__mye58300_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58300_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46754_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.9/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_153",
+      "time_ms": 0.031035839947871863,
+      "inputs": [
+        {
+          "name": "__mye46754_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.9/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.9/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.9/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.9/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.9/attention/self/MatMul_1_myl0_154",
+      "time_ms": 0.03998144009150564,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.9/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58300_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46783_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.9/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.10/attention/self/MatMul_myl0_168",
+      "time_ms": 0.0547596800327301,
+      "inputs": [
+        {
+          "name": "__mye58275_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58275_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46962_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.10/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_169",
+      "time_ms": 0.03274240016005933,
+      "inputs": [
+        {
+          "name": "__mye46962_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.10/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.10/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.10/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.10/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.10/attention/self/MatMul_1_myl0_170",
+      "time_ms": 0.0383574400562793,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.10/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58275_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye46991_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.10/attention/self/MatMul_1]"
+    },
+    {
+      "category": "q_times_k_transpose_gemm",
+      "layer_name": "/model/encoder/layer.11/attention/self/MatMul_myl0_184",
+      "time_ms": 0.05303039993159473,
+      "inputs": [
+        {
+          "name": "__mye58250_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58250_myl0",
+          "dimensions": [
+            -1,
+            64,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye47170_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.11/attention/self/MatMul]"
+    },
+    {
+      "category": "softmax",
+      "layer_name": "__myl_MulAddMaxrSubExpSumDivMul_myl0_185",
+      "time_ms": 0.029695999990217388,
+      "inputs": [
+        {
+          "name": "__mye47170_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__myln_k_arg__bb1_22_myl0",
+          "dimensions": [
+            -1,
+            1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "/model/encoder/layer.11/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            12,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.11/attention/self/Softmax]\u001f[ONNX Layer: /model/encoder/layer.11/attention/self/Add]\u001f[ONNX Layer: /model/encoder/layer.11/attention/self/Mul]"
+    },
+    {
+      "category": "scores_times_v_gemm",
+      "layer_name": "/model/encoder/layer.11/attention/self/MatMul_1_myl0_186",
+      "time_ms": 0.03725728016346693,
+      "inputs": [
+        {
+          "name": "/model/encoder/layer.11/attention/self/Softmax_output.1_myl0",
+          "dimensions": [
+            -1,
+            128,
+            128
+          ],
+          "datatype": "Float"
+        },
+        {
+          "name": "__mye58250_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "__mye47199_myl0",
+          "dimensions": [
+            -1,
+            128,
+            64
+          ],
+          "datatype": "Float"
+        }
+      ],
+      "metadata": "[ONNX Layer: /model/encoder/layer.11/attention/self/MatMul_1]"
+    }
+  ]
+}

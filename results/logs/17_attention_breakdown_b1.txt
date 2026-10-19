@@ -1,0 +1,104 @@
+profile: results/profile_original_b1.json
+batch=1   seq=128
+total profiled time: 6.901 ms
+
+detailed category breakdown
+category                              count    total ms     share
+qkv_projection_gemm                      12       0.995     14.4%
+output_projection_gemm                   12       0.993     14.4%
+attention_transpose_candidate            24       0.677      9.8%
+q_times_k_transpose_gemm                 12       0.658      9.5%
+scores_times_v_gemm                      12       0.511      7.4%
+softmax                                  12       0.417      6.0%
+
+possible plugin target
+Q x K^T + softmax + scores x V: 1.586 ms (23.0% of profiled time)
+That group + transpose candidates: 2.263 ms (32.8% of profiled time)
+
+selected layers:
+  0.0337 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_2
+  0.1006 ms  qkv_projection_gemm                  /model/encoder/layer.0/attention/self/value/MatMul+/model/encoder/layer.0/attention/self/key/MatMul+/model/enc
+  0.0612 ms  q_times_k_transpose_gemm             /model/encoder/layer.0/attention/self/MatMul_myl0_8
+  0.0393 ms  softmax                              __myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_myl0_9
+  0.0490 ms  scores_times_v_gemm                  /model/encoder/layer.0/attention/self/MatMul_1_myl0_10
+  0.0402 ms  attention_transpose_candidate        __myl_Tran_myl0_11
+  0.0838 ms  output_projection_gemm               /model/encoder/layer.0/attention/output/dense/MatMul_myl0_12
+  0.0215 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_18
+  0.0917 ms  qkv_projection_gemm                  /model/encoder/layer.1/attention/self/value/MatMul+/model/encoder/layer.1/attention/self/key/MatMul+/model/enc
+  0.0530 ms  q_times_k_transpose_gemm             /model/encoder/layer.1/attention/self/MatMul_myl0_24
+  0.0399 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_25
+  0.0515 ms  scores_times_v_gemm                  /model/encoder/layer.1/attention/self/MatMul_1_myl0_26
+  0.0373 ms  attention_transpose_candidate        __myl_Tran_myl0_27
+  0.0825 ms  output_projection_gemm               /model/encoder/layer.1/attention/output/dense/MatMul_myl0_28
+  0.0226 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_34
+  0.0883 ms  qkv_projection_gemm                  /model/encoder/layer.2/attention/self/value/MatMul+/model/encoder/layer.2/attention/self/key/MatMul+/model/enc
+  0.0558 ms  q_times_k_transpose_gemm             /model/encoder/layer.2/attention/self/MatMul_myl0_40
+  0.0388 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_41
+  0.0433 ms  scores_times_v_gemm                  /model/encoder/layer.2/attention/self/MatMul_1_myl0_42
+  0.0409 ms  attention_transpose_candidate        __myl_Tran_myl0_43
+  0.0834 ms  output_projection_gemm               /model/encoder/layer.2/attention/output/dense/MatMul_myl0_44
+  0.0170 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_50
+  0.0816 ms  qkv_projection_gemm                  /model/encoder/layer.3/attention/self/value/MatMul+/model/encoder/layer.3/attention/self/key/MatMul+/model/enc
+  0.0526 ms  q_times_k_transpose_gemm             /model/encoder/layer.3/attention/self/MatMul_myl0_56
+  0.0346 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_57
+  0.0447 ms  scores_times_v_gemm                  /model/encoder/layer.3/attention/self/MatMul_1_myl0_58
+  0.0391 ms  attention_transpose_candidate        __myl_Tran_myl0_59
+  0.0838 ms  output_projection_gemm               /model/encoder/layer.3/attention/output/dense/MatMul_myl0_60
+  0.0230 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_66
+  0.0860 ms  qkv_projection_gemm                  /model/encoder/layer.4/attention/self/value/MatMul+/model/encoder/layer.4/attention/self/key/MatMul+/model/enc
+  0.0569 ms  q_times_k_transpose_gemm             /model/encoder/layer.4/attention/self/MatMul_myl0_72
+  0.0336 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_73
+  0.0479 ms  scores_times_v_gemm                  /model/encoder/layer.4/attention/self/MatMul_1_myl0_74
+  0.0418 ms  attention_transpose_candidate        __myl_Tran_myl0_75
+  0.0874 ms  output_projection_gemm               /model/encoder/layer.4/attention/output/dense/MatMul_myl0_76
+  0.0190 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_82
+  0.0850 ms  qkv_projection_gemm                  /model/encoder/layer.5/attention/self/value/MatMul+/model/encoder/layer.5/attention/self/key/MatMul+/model/enc
+  0.0518 ms  q_times_k_transpose_gemm             /model/encoder/layer.5/attention/self/MatMul_myl0_88
+  0.0402 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_89
+  0.0394 ms  scores_times_v_gemm                  /model/encoder/layer.5/attention/self/MatMul_1_myl0_90
+  0.0434 ms  attention_transpose_candidate        __myl_Tran_myl0_91
+  0.0844 ms  output_projection_gemm               /model/encoder/layer.5/attention/output/dense/MatMul_myl0_92
+  0.0225 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_98
+  0.0840 ms  qkv_projection_gemm                  /model/encoder/layer.6/attention/self/value/MatMul+/model/encoder/layer.6/attention/self/key/MatMul+/model/enc
+  0.0537 ms  q_times_k_transpose_gemm             /model/encoder/layer.6/attention/self/MatMul_myl0_104
+  0.0363 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_105
+  0.0440 ms  scores_times_v_gemm                  /model/encoder/layer.6/attention/self/MatMul_1_myl0_106
+  0.0431 ms  attention_transpose_candidate        __myl_Tran_myl0_107
+  0.0802 ms  output_projection_gemm               /model/encoder/layer.6/attention/output/dense/MatMul_myl0_108
+  0.0151 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_114
+  0.0768 ms  qkv_projection_gemm                  /model/encoder/layer.7/attention/self/value/MatMul+/model/encoder/layer.7/attention/self/key/MatMul+/model/enc
+  0.0556 ms  q_times_k_transpose_gemm             /model/encoder/layer.7/attention/self/MatMul_myl0_120
+  0.0307 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_121
+  0.0382 ms  scores_times_v_gemm                  /model/encoder/layer.7/attention/self/MatMul_1_myl0_122
+  0.0318 ms  attention_transpose_candidate        __myl_Tran_myl0_123
+  0.0847 ms  output_projection_gemm               /model/encoder/layer.7/attention/output/dense/MatMul_myl0_124
+  0.0125 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_130
+  0.0761 ms  qkv_projection_gemm                  /model/encoder/layer.8/attention/self/value/MatMul+/model/encoder/layer.8/attention/self/key/MatMul+/model/enc
+  0.0532 ms  q_times_k_transpose_gemm             /model/encoder/layer.8/attention/self/MatMul_myl0_136
+  0.0301 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_137
+  0.0374 ms  scores_times_v_gemm                  /model/encoder/layer.8/attention/self/MatMul_1_myl0_138
+  0.0346 ms  attention_transpose_candidate        __myl_Tran_myl0_139
+  0.0817 ms  output_projection_gemm               /model/encoder/layer.8/attention/output/dense/MatMul_myl0_140
+  0.0152 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_146
+  0.0771 ms  qkv_projection_gemm                  /model/encoder/layer.9/attention/self/value/MatMul+/model/encoder/layer.9/attention/self/key/MatMul+/model/enc
+  0.0564 ms  q_times_k_transpose_gemm             /model/encoder/layer.9/attention/self/MatMul_myl0_152
+  0.0310 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_153
+  0.0400 ms  scores_times_v_gemm                  /model/encoder/layer.9/attention/self/MatMul_1_myl0_154
+  0.0293 ms  attention_transpose_candidate        __myl_Tran_myl0_155
+  0.0826 ms  output_projection_gemm               /model/encoder/layer.9/attention/output/dense/MatMul_myl0_156
+  0.0140 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_162
+  0.0727 ms  qkv_projection_gemm                  /model/encoder/layer.10/attention/self/value/MatMul+/model/encoder/layer.10/attention/self/key/MatMul+/model/e
+  0.0548 ms  q_times_k_transpose_gemm             /model/encoder/layer.10/attention/self/MatMul_myl0_168
+  0.0327 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_169
+  0.0384 ms  scores_times_v_gemm                  /model/encoder/layer.10/attention/self/MatMul_1_myl0_170
+  0.0330 ms  attention_transpose_candidate        __myl_Tran_myl0_171
+  0.0771 ms  output_projection_gemm               /model/encoder/layer.10/attention/output/dense/MatMul_myl0_172
+  0.0139 ms  attention_transpose_candidate        __myl_AddSqrtDivMulMulAddReshTran_myl0_178
+  0.0752 ms  qkv_projection_gemm                  /model/encoder/layer.11/attention/self/value/MatMul+/model/encoder/layer.11/attention/self/key/MatMul+/model/e
+  0.0530 ms  q_times_k_transpose_gemm             /model/encoder/layer.11/attention/self/MatMul_myl0_184
+  0.0297 ms  softmax                              __myl_MulAddMaxrSubExpSumDivMul_myl0_185
+  0.0373 ms  scores_times_v_gemm                  /model/encoder/layer.11/attention/self/MatMul_1_myl0_186
+  0.0322 ms  attention_transpose_candidate        __myl_Tran_myl0_187
+  0.0813 ms  output_projection_gemm               /model/encoder/layer.11/attention/output/dense/MatMul_myl0_188
+
+saved JSON results to results/attention_breakdown_b1.json

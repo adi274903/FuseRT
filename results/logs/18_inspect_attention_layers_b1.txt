@@ -1,0 +1,292 @@
+selected attention layers: 36
+
+0.0612 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.0/attention/self/MatMul_myl0_8
+  inputs:
+    {'name': '__mye58525_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58525_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye44882_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0393 ms  softmax
+layer: __myl_CastReshIotaCastReshReshEqlGtrOrIotaCastReshMulAddCastGathReshAndSlicReplSeleMulAddMaxrSubEtc_myl0_9
+  inputs:
+    {'name': 'attention_mask', 'dimensions': [-1, 128], 'datatype': 'Int64'}
+    {'name': '__mye44882_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.0/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+
+0.0490 ms  scores_times_v_gemm
+layer: /model/encoder/layer.0/attention/self/MatMul_1_myl0_10
+  inputs:
+    {'name': '/model/encoder/layer.0/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58525_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye44911_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0530 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.1/attention/self/MatMul_myl0_24
+  inputs:
+    {'name': '__mye58500_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58500_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45090_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0399 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_25
+  inputs:
+    {'name': '__mye45090_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.1/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0515 ms  scores_times_v_gemm
+layer: /model/encoder/layer.1/attention/self/MatMul_1_myl0_26
+  inputs:
+    {'name': '/model/encoder/layer.1/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58500_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45119_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0558 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.2/attention/self/MatMul_myl0_40
+  inputs:
+    {'name': '__mye58475_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58475_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45298_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0388 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_41
+  inputs:
+    {'name': '__mye45298_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.2/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0433 ms  scores_times_v_gemm
+layer: /model/encoder/layer.2/attention/self/MatMul_1_myl0_42
+  inputs:
+    {'name': '/model/encoder/layer.2/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58475_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45327_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0526 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.3/attention/self/MatMul_myl0_56
+  inputs:
+    {'name': '__mye58450_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58450_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45506_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0346 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_57
+  inputs:
+    {'name': '__mye45506_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.3/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0447 ms  scores_times_v_gemm
+layer: /model/encoder/layer.3/attention/self/MatMul_1_myl0_58
+  inputs:
+    {'name': '/model/encoder/layer.3/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58450_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45535_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0569 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.4/attention/self/MatMul_myl0_72
+  inputs:
+    {'name': '__mye58425_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58425_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45714_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0336 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_73
+  inputs:
+    {'name': '__mye45714_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.4/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0479 ms  scores_times_v_gemm
+layer: /model/encoder/layer.4/attention/self/MatMul_1_myl0_74
+  inputs:
+    {'name': '/model/encoder/layer.4/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58425_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45743_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0518 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.5/attention/self/MatMul_myl0_88
+  inputs:
+    {'name': '__mye58400_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58400_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45922_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0402 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_89
+  inputs:
+    {'name': '__mye45922_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.5/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0394 ms  scores_times_v_gemm
+layer: /model/encoder/layer.5/attention/self/MatMul_1_myl0_90
+  inputs:
+    {'name': '/model/encoder/layer.5/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58400_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye45951_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0537 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.6/attention/self/MatMul_myl0_104
+  inputs:
+    {'name': '__mye58375_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58375_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46130_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0363 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_105
+  inputs:
+    {'name': '__mye46130_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.6/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0440 ms  scores_times_v_gemm
+layer: /model/encoder/layer.6/attention/self/MatMul_1_myl0_106
+  inputs:
+    {'name': '/model/encoder/layer.6/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58375_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46159_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0556 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.7/attention/self/MatMul_myl0_120
+  inputs:
+    {'name': '__mye58350_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58350_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46338_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0307 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_121
+  inputs:
+    {'name': '__mye46338_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.7/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0382 ms  scores_times_v_gemm
+layer: /model/encoder/layer.7/attention/self/MatMul_1_myl0_122
+  inputs:
+    {'name': '/model/encoder/layer.7/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58350_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46367_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0532 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.8/attention/self/MatMul_myl0_136
+  inputs:
+    {'name': '__mye58325_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58325_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46546_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0301 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_137
+  inputs:
+    {'name': '__mye46546_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.8/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0374 ms  scores_times_v_gemm
+layer: /model/encoder/layer.8/attention/self/MatMul_1_myl0_138
+  inputs:
+    {'name': '/model/encoder/layer.8/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58325_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46575_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0564 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.9/attention/self/MatMul_myl0_152
+  inputs:
+    {'name': '__mye58300_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58300_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46754_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0310 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_153
+  inputs:
+    {'name': '__mye46754_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.9/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0400 ms  scores_times_v_gemm
+layer: /model/encoder/layer.9/attention/self/MatMul_1_myl0_154
+  inputs:
+    {'name': '/model/encoder/layer.9/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58300_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46783_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0548 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.10/attention/self/MatMul_myl0_168
+  inputs:
+    {'name': '__mye58275_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58275_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46962_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0327 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_169
+  inputs:
+    {'name': '__mye46962_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.10/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0384 ms  scores_times_v_gemm
+layer: /model/encoder/layer.10/attention/self/MatMul_1_myl0_170
+  inputs:
+    {'name': '/model/encoder/layer.10/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58275_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye46991_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+0.0530 ms  q_times_k_transpose_gemm
+layer: /model/encoder/layer.11/attention/self/MatMul_myl0_184
+  inputs:
+    {'name': '__mye58250_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+    {'name': '__mye58250_myl0', 'dimensions': [-1, 64, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye47170_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+
+0.0297 ms  softmax
+layer: __myl_MulAddMaxrSubExpSumDivMul_myl0_185
+  inputs:
+    {'name': '__mye47170_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+    {'name': '__myln_k_arg__bb1_22_myl0', 'dimensions': [-1, 1, 128, 128], 'datatype': 'Float'}
+  outputs:
+    {'name': '/model/encoder/layer.11/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 12, 128, 128], 'datatype': 'Float'}
+
+0.0373 ms  scores_times_v_gemm
+layer: /model/encoder/layer.11/attention/self/MatMul_1_myl0_186
+  inputs:
+    {'name': '/model/encoder/layer.11/attention/self/Softmax_output.1_myl0', 'dimensions': [-1, 128, 128], 'datatype': 'Float'}
+    {'name': '__mye58250_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+  outputs:
+    {'name': '__mye47199_myl0', 'dimensions': [-1, 128, 64], 'datatype': 'Float'}
+
+saved JSON results to results/attention_layer_shapes_b1.json
