@@ -2,7 +2,7 @@
 
 **A graph compiler and performance-analysis project for deep learning inference.**
 
-FuseRT rewrites ONNX models with hand-written fusion passes, verifies that outputs remain correct, and compares execution in ONNX Runtime and TensorRT 11 on an NVIDIA RTX 3060 Laptop GPU.
+FuseRT rewrites ONNX models with hand-written fusion passes, verifies that outputs remain correct, and compares execution in ONNX Runtime and TensorRT 11 on an NVIDIA Laptop GPU.
 
 FuseRT 2.0 extends the project from standard ONNX rewrites toward backend-aware optimization: it profiles the TensorRT engine, identifies BERT's repeated attention path, validates a reference implementation, and prepares the path toward a custom CUDA/TensorRT attention plugin.
 
